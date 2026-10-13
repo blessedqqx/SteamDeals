@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Steam Deals</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@600;800&display=swap">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11161d;color:#e8edf3;font-family:'Manrope',sans-serif}
+.w{max-width:1360px;margin:0 auto;padding:0 24px 48px}.d{font-family:'Unbounded',sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid #263040}
+.logo{font-size:20px;font-weight:800}.logo b{color:#7be0a4}.hr{display:flex;gap:10px;flex-wrap:wrap}
+input,select{background:#1a212b;border:1px solid #263040;color:#e8edf3;border-radius:10px;padding:10px 14px;font:600 15px 'Manrope';min-height:44px;max-width:100%}
+input{width:260px}
+h1{font-size:clamp(24px,4vw,38px);margin:32px 0 8px}.sub{color:#9aa7b5;margin:0 0 8px}
+.lbl{font-size:13px;color:#9aa7b5;font-weight:800;margin:24px 0 10px;letter-spacing:.05em}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#1a212b;color:#e8edf3;border:1px solid #263040;border-radius:999px;padding:10px 16px;font:600 15px 'Manrope';min-height:44px;cursor:pointer}
+.chip.on{background:#7be0a4;color:#0b1a12;border-color:#7be0a4}.chip i{font-style:normal;opacity:.65;margin-left:6px}
+.box{background:#1a212b;border-radius:16px;padding:20px;margin-top:24px}.box p{margin:0 0 12px;color:#9aa7b5}
+.pf{display:flex;gap:10px;flex-wrap:wrap}.pf input{flex:1;min-width:220px}
+.btn{background:#7be0a4;color:#0b1a12;border:0;border-radius:10px;padding:12px 20px;font:800 15px 'Manrope';min-height:44px;cursor:pointer;display:inline-block;text-decoration:none}
+.btn.off{background:#263040;color:#9aa7b5}
+#pst{margin-top:12px;font-weight:600}#pst.err{color:#f2b84b}
+.bar{display:flex;justify-content:space-between;align-items:center;margin:32px 0 16px;flex-wrap:wrap;gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:#1a212b;border-radius:16px;overflow:hidden;cursor:pointer;border:0;color:inherit;text-align:left;padding:0;font:inherit}
+.card:hover{outline:2px solid #7be0a4}
+.card img{width:100%;aspect-ratio:460/215;object-fit:cover;display:block;background:#263040}
+.cb{padding:16px;display:flex;flex-direction:column;gap:10px}.nm{font-weight:800}
+.pr{display:flex;align-items:center;gap:10px}
+.dsc{background:#7be0a4;color:#0b1a12;font-weight:800;border-radius:6px;padding:5px 8px}.dsc.z{background:#263040;color:#9aa7b5}
+.old{color:#9aa7b5;text-decoration:line-through;font-size:14px}.new{margin-left:auto;font-weight:800;font-size:18px}
+.tag{font-size:13px;color:#f2b84b;font-weight:600}
+.meta{display:flex;gap:12px;font-size:13px;font-weight:700;flex-wrap:wrap}.hi{color:#7be0a4}.mid{color:#f2b84b}.lo{color:#9aa7b5}.mt{color:#8ab4ff}
+dialog{background:#1a212b;color:#e8edf3;border:0;border-radius:20px;padding:28px;width:min(760px,94vw)}dialog::backdrop{background:#000a}
+.kv{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #263040}.kv span{color:#9aa7b5}
+.hint{padding:12px 14px;border-radius:10px;margin:14px 0;font-weight:700;background:#263040}.hint.good{background:#17332a;color:#9ff0c0}.hint.wait{background:#3a2f12;color:#ffd887}
+.demo{background:#f2b84b;color:#1a1200;text-align:center;font-weight:800;padding:8px}.empty{color:#9aa7b5;padding:40px 0}
+.ph{width:100%;aspect-ratio:460/215;display:flex;align-items:flex-end;padding:16px;font:800 20px/1.1 "Unbounded",sans-serif;color:#fff}
+</style></head><body>
+<div id="demo" class="demo" hidden data-i="demo"></div>
+<div class="w">
+<header><div class="logo d">STEAM<b>DEALS</b></div>
+<div class="hr"><input id="q" type="search" data-ph="search" aria-label="search"><select id="lang" aria-label="language"><option value="ru">Русский</option><option value="uk">Українська</option><option value="en">English</option></select></div></header>
+<h1 class="d" data-i="title"></h1><p class="sub"><span data-i="sub"></span> <span id="upd"></span></p>
+<div class="lbl" data-i="region"></div><div class="chips" id="regions"></div>
+<div class="box"><h2 class="d" style="margin:0 0 8px;font-size:18px" data-i="profT"></h2><p data-i="profD"></p>
+<div class="pf"><input id="pq" data-ph="profPh" aria-label="profile"><button class="btn" id="pb" data-i="profBtn"></button></div><div id="pst"></div>
+<div id="pinfo" style="margin-top:12px;color:#9aa7b5"></div><div id="tgw" style="margin-top:12px"></div></div>
+<div class="chips" id="views" style="margin-top:24px" hidden></div>
+<div class="lbl" data-i="genre"></div><div class="chips" id="genres"></div>
+<div class="lbl" data-i="price"></div><div class="chips" id="prices"></div>
+<div class="bar"><h2 class="d" id="cnt" style="margin:0;font-size:22px"></h2><select id="sort" aria-label="sort"></select></div>
+<div class="grid" id="grid"></div></div>
+<dialog id="dlg"></dialog>
+<script>
+const CONFIG={WORKER:"",TG_BOT:""}; // адрес воркера и имя Telegram-бота (без @), см. README
+const L={
+ru:{demo:"Демо-данные.",title:"Лучшие игры Steam по лучшей цене",sub:"Скидки по регионам, обновляются каждый день.",region:"РЕГИОН",genre:"ЖАНР",price:"СКИДКА И ЦЕНА",search:"Поиск игры",found:"Найдено игр: {n}",sDisc:"Сначала большая скидка",sCheap:"Сначала дешёвые",sName:"По названию",sRate:"По отзывам",sMatch:"По совпадению с вами",all:"Все",story:"Сюжетные",coop:"Кооператив",shooter:"Шутеры",openworld:"Открытый мир",horror:"Хоррор",indie:"Инди",racing:"Гонки",strategy:"Стратегии",allP:"Все цены",d50:"−50% и больше",d75:"−75% и больше",upTo:"До {v}",low:"Исторический минимум",free:"Бесплатно",close:"Закрыть",now:"Сейчас",reg:"Обычная цена",min:"Минимум за время наблюдений",steam:"Открыть в Steam",hGood:"Хорошая цена: на уровне минимума",hWait:"Можно подождать: бывало до −{n}%",hNorm:"Обычная для этой игры скидка",hFew:"Мало данных: история цен только копится",few:"История копится с первого запуска сборщика. Пока мало точек.",noData:"Для региона «{r}» пока нет данных. Они появятся после первого запуска сборщика.",profT:"Ваш профиль Steam",profD:"Вставьте ссылку на профиль или SteamID: покажем вишлист со скидками и подберём игры по вашей библиотеке.",profPh:"steamcommunity.com/id/... или SteamID",profBtn:"Показать",loading:"Загрузка...",pPriv:"Профиль или список игр закрыт. В Steam: Профиль, Настройки приватности, «Сведения об играх» → Открытые.",pNF:"Профиль не найден. Проверьте ссылку.",pNW:"Подбор по профилю не настроен: нужен серверный модуль (см. README).",pErr:"Не удалось загрузить профиль. Попробуйте позже.",vAll:"Все скидки",vWish:"Мой вишлист",vRec:"Подобрано для вас",match:"Совпадение {n}%",info:"Узнали {a} из {b} ваших игр. Больше всего вы играете в: {g}.",wInfo:"В вишлисте игр: {n}, со скидкой: {d}.",tg:"Уведомления о вишлисте в Telegram",tgOff:"Telegram-бот не настроен",noRes:"Ничего не найдено. Попробуйте другой фильтр.",upd:"Обновлено: {d}",r_ua:"Украина",r_us:"США",r_kz:"Казахстан",r_ru:"Россия",rev:"отзывов"},
+uk:{demo:"Демо-дані.",title:"Найкращі ігри Steam за найкращою ціною",sub:"Знижки за регіонами, оновлюються щодня.",region:"РЕГІОН",genre:"ЖАНР",price:"ЗНИЖКА І ЦІНА",search:"Пошук гри",found:"Знайдено ігор: {n}",sDisc:"Спочатку більша знижка",sCheap:"Спочатку дешеві",sName:"За назвою",sRate:"За відгуками",sMatch:"За збігом з вами",all:"Усі",story:"Сюжетні",coop:"Кооператив",shooter:"Шутери",openworld:"Відкритий світ",horror:"Хорор",indie:"Інді",racing:"Перегони",strategy:"Стратегії",allP:"Усі ціни",d50:"−50% і більше",d75:"−75% і більше",upTo:"До {v}",low:"Історичний мінімум",free:"Безкоштовно",close:"Закрити",now:"Зараз",reg:"Звичайна ціна",min:"Мінімум за час спостережень",steam:"Відкрити в Steam",hGood:"Хороша ціна: на рівні мінімуму",hWait:"Можна зачекати: бувало до −{n}%",hNorm:"Звичайна для цієї гри знижка",hFew:"Мало даних: історія цін лише накопичується",few:"Історія накопичується з першого запуску збирача. Поки мало точок.",noData:"Для регіону «{r}» поки немає даних. З'являться після першого запуску збирача.",profT:"Ваш профіль Steam",profD:"Вставте посилання на профіль або SteamID: покажемо вішліст зі знижками й підберемо ігри за вашою бібліотекою.",profPh:"steamcommunity.com/id/... або SteamID",profBtn:"Показати",loading:"Завантаження...",pPriv:"Профіль або список ігор закритий. У Steam: Профіль, Налаштування приватності, «Відомості про ігри» → Відкриті.",pNF:"Профіль не знайдено. Перевірте посилання.",pNW:"Добір за профілем не налаштовано: потрібен серверний модуль (див. README).",pErr:"Не вдалося завантажити профіль. Спробуйте пізніше.",vAll:"Усі знижки",vWish:"Мій вішліст",vRec:"Підібрано для вас",match:"Збіг {n}%",info:"Впізнали {a} з {b} ваших ігор. Найбільше ви граєте в: {g}.",wInfo:"У вішлісті ігор: {n}, зі знижкою: {d}.",tg:"Сповіщення про вішліст у Telegram",tgOff:"Telegram-бот не налаштований",noRes:"Нічого не знайдено. Спробуйте інший фільтр.",upd:"Оновлено: {d}",r_ua:"Україна",r_us:"США",r_kz:"Казахстан",r_ru:"Росія",rev:"відгуків"},
+en:{demo:"Demo data.",title:"The best Steam games at the best price",sub:"Deals by region, updated daily.",region:"REGION",genre:"GENRE",price:"DISCOUNT AND PRICE",search:"Search games",found:"Games found: {n}",sDisc:"Biggest discount first",sCheap:"Cheapest first",sName:"By name",sRate:"By reviews",sMatch:"Best match for you",all:"All",story:"Story-rich",coop:"Co-op",shooter:"Shooters",openworld:"Open world",horror:"Horror",indie:"Indie",racing:"Racing",strategy:"Strategy",allP:"All prices",d50:"−50% or more",d75:"−75% or more",upTo:"Up to {v}",low:"All-time low",free:"Free",close:"Close",now:"Now",reg:"Regular price",min:"Lowest seen so far",steam:"Open on Steam",hGood:"Good price: at the lowest level",hWait:"Could wait: has been as low as −{n}%",hNorm:"Typical discount for this game",hFew:"Not enough data: price history is still building",few:"History builds up from the first collector run. Few points so far.",noData:"No data for “{r}” yet. It will appear after the first collector run.",profT:"Your Steam profile",profD:"Paste a profile link or SteamID: we'll show your wishlist deals and pick games based on your library.",profPh:"steamcommunity.com/id/... or SteamID",profBtn:"Show",loading:"Loading...",pPriv:"Profile or game list is private. In Steam: Profile, Privacy Settings, “Game details” → Public.",pNF:"Profile not found. Check the link.",pNW:"Profile features aren't set up: a server module is required (see README).",pErr:"Couldn't load the profile. Try again later.",vAll:"All deals",vWish:"My wishlist",vRec:"Picked for you",match:"Match {n}%",info:"Recognized {a} of your {b} games. You play most: {g}.",wInfo:"Wishlist games: {n}, on sale: {d}.",tg:"Wishlist alerts in Telegram",tgOff:"Telegram bot is not set up",noRes:"Nothing found. Try another filter.",upd:"Updated: {d}",r_ua:"Ukraine",r_us:"USA",r_kz:"Kazakhstan",r_ru:"Russia",rev:"reviews"}};
+const REG={ua:{cur:"UAH",t:[100,300,500,1000]},us:{cur:"USD",t:[5,10,20,30]},kz:{cur:"KZT",t:[2000,5000,10000,20000]},ru:{cur:"RUB",t:[200,500,1000,2000]}};
+const LOC={ru:"ru-RU",uk:"uk-UA",en:"en-US"},GK=["all","story","coop","shooter","openworld","horror","indie","racing","strategy"];
+let lang=localStorage.getItem("lang")||"ru",R=(location.hash.slice(1) in REG)?location.hash.slice(1):"ua",CUR=REG[R].cur;
+let games=[],gmap={},prices={},hist={},rev={},G="all",P="all",V="all",wish=[],owned=new Set(),W={},MS=1,lastQ="",PROF=false,pInfo="";
+const T=(k,v={})=>(L[lang][k]??k).replace(/\{(\w+)\}/g,(_,x)=>v[x]);
+const fmt=n=>new Intl.NumberFormat(LOC[lang],{style:"currency",currency:CUR,maximumFractionDigits:CUR==="USD"?2:0}).format(n);
+const img=id=>`https://cdn.akamai.steamstatic.com/steam/apps/${id}/header.jpg`;
+const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const kf=n=>n>=1000?Math.round(n/1000)+"k":n;
+const PR=()=>[["all",T("allP"),()=>true],["d50",T("d50"),x=>x.discount>=50],["d75",T("d75"),x=>x.discount>=75],...REG[R].t.map(v=>["p"+v,T("upTo",{v:fmt(v)}),x=>x.final<=v]),["low",T("low"),x=>x.low],["free",T("free"),x=>x.final===0]];
+const sc=g=>g.tags.reduce((a,t)=>a+(W[t]||0),0);
+const rank=g=>g.m*.6+g.discount/100*.25+((g.rev?.pct||70)-70)/200;
+function list(){
+ if(V==="wish")return wish;
+ return games.filter(g=>prices[g.id]).map(g=>({...g,...prices[g.id],rev:rev[g.id],m:sc(g)/MS})).filter(g=>V!=="rec"||(!owned.has(g.id)&&g.m>0));
+}
+function applyLang(){
+ document.documentElement.lang=lang;lang_.value=lang;
+ document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T(e.dataset.i));
+ document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=T(e.dataset.ph));
+ sort.innerHTML=[["disc","sDisc"],["cheap","sCheap"],["rate","sRate"],["name","sName"],...(PROF?[["match","sMatch"]]:[])].map(([k,t])=>`<option value="${k}">${T(t)}</option>`).join("");
+ regions.innerHTML=Object.keys(REG).map(k=>`<button class="chip ${R===k?"on":""}" data-r="${k}">${T("r_"+k)}</button>`).join("");
+ if(V==="rec")sort.value="match";
+}
+function chips(){
+ const all=list();
+ genres.innerHTML=GK.map(k=>`<button class="chip ${G===k?"on":""}" data-g="${k}">${T(k)}<i>${all.filter(g=>k==="all"||g.tags.includes(k)).length}</i></button>`).join("");
+ const base=all.filter(g=>G==="all"||g.tags.includes(G));
+ document.getElementById("prices").innerHTML=PR().map(([k,t,f])=>`<button class="chip ${P===k?"on":""}" data-p="${k}">${t}<i>${base.filter(f).length}</i></button>`).join("");
+ views.hidden=!PROF;
+ views.innerHTML=PROF?[["all","vAll"],["wish","vWish"],["rec","vRec"]].map(([k,t])=>`<button class="chip ${V===k?"on":""}" data-v="${k}">${T(t)}</button>`).join(""):"";
+}
+function render(){
+ chips();
+ const f=(PR().find(p=>p[0]===P)||PR()[0])[2],s=q.value.toLowerCase().trim();
+ let r=list().filter(g=>(G==="all"||g.tags.includes(G))&&f(g)&&g.name.toLowerCase().includes(s));
+ const o=sort.value;
+ r.sort((a,b)=>o==="disc"?b.discount-a.discount:o==="cheap"?a.final-b.final:o==="rate"?(b.rev?.pct||0)-(a.rev?.pct||0):o==="match"?rank(b)-rank(a):a.name.localeCompare(b.name));
+ cnt.textContent=T("found",{n:r.length});
+ grid.innerHTML=r.length?r.map(g=>{
+  const rv=g.rev?`<span class="${g.rev.pct>=80?"hi":g.rev.pct>=60?"mid":"lo"}">${g.rev.pct}% · ${kf(g.rev.total)} ${T("rev")}</span>`:"",mt=V==="rec"?`<span class="mt">${T("match",{n:Math.round(g.m*100)})}</span>`:"";
+  return `<button class="card" data-id="${g.id}"><img loading="lazy" src="${img(g.id)}" alt="${E(g.name)}"><div class="cb"><div class="nm">${E(g.name)}</div><div class="meta">${rv}${mt}</div><div class="pr"><span class="dsc ${g.discount?"":"z"}">${g.discount?"−"+g.discount+"%":"0%"}</span>${g.discount?`<span class="old">${fmt(g.initial)}</span>`:""}<span class="new">${g.final?fmt(g.final):T("free")}</span></div>${g.low?`<div class="tag">${T("low")}</div>`:""}</div></button>`}).join(""):`<div class="empty">${T("noRes")}</div>`;
+}
+function chart(h){
+ if(h.length<2)return `<p class="sub">${T("few")}</p>`;
+ const W_=700,H=240,pad=40,max=Math.max(...h.map(p=>p[1])),min=Math.min(...h.map(p=>p[1]));
+ const x=i=>pad+i*(W_-pad-10)/(h.length-1),y=v=>20+(H-50)*(1-v/(max||1));
+ let d=`M${x(0)} ${y(h[0][1])}`;for(let i=1;i<h.length;i++)d+=` H${x(i)} V${y(h[i][1])}`;
+ return `<svg viewBox="0 0 ${W_} ${H}" style="width:100%" role="img" aria-label="price history"><path d="${d}" fill="none" stroke="#7be0a4" stroke-width="3"/><line x1="${pad}" x2="${W_-10}" y1="${y(min)}" y2="${y(min)}" stroke="#f2b84b" stroke-dasharray="6 6"/><text x="${pad+4}" y="${y(min)-6}" fill="#f2b84b" font-size="12">${fmt(min)}</text><text x="${pad}" y="${H-8}" fill="#9aa7b5" font-size="12">${h[0][0]}</text><text x="${W_-10}" y="${H-8}" fill="#9aa7b5" font-size="12" text-anchor="end">${h[h.length-1][0]}</text></svg>`;
+}
+function hint(g,h){
+ if(h.length<3)return ["",T("hFew")];
+ const mx=Math.max(g.initial,...h.map(p=>p[1])),mn=Math.min(...h.map(p=>p[1])),best=Math.round((1-mn/mx)*100);
+ if(g.final<=mn*1.03)return ["good",T("hGood")];
+ if(best-g.discount>=15)return ["wait",T("hWait",{n:best})];
+ return ["",T("hNorm")];
+}
+function open_(id){
+ const g=list().find(x=>x.id==id);if(!g)return;
+ const h=hist[id]||[],vals=h.map(p=>p[1]),min=vals.length?Math.min(...vals):g.final,md=h.find(p=>p[1]===min),[hc,ht]=hint(g,h);
+ dlg.innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px"><h2 class="d" style="margin:0;font-size:22px">${E(g.name)}</h2><button class="chip" onclick="dlg.close()">${T("close")}</button></div>
+ <img src="${img(id)}" alt="" style="width:100%;border-radius:12px;margin:16px 0;aspect-ratio:460/215;object-fit:cover">
+ <div class="hint ${hc}">${ht}</div>${chart(h)}
+ <div class="kv"><span>${T("now")}</span><b>${fmt(g.final)}</b></div><div class="kv"><span>${T("reg")}</span><b>${fmt(g.initial)}</b></div>
+ <div class="kv"><span>${T("min")}</span><b>${fmt(min)}${md?" · "+md[0]:""}</b></div>
+ ${g.rev?`<div class="kv"><span>Steam</span><b>${g.rev.pct}% · ${g.rev.total.toLocaleString(LOC[lang])} ${T("rev")}</b></div>`:""}
+ <p style="margin-bottom:0"><a class="btn" href="https://store.steampowered.com/app/${id}/?cc=${R}" target="_blank" rel="noopener">${T("steam")}</a></p>`;
+ dlg.showModal();
+}
+async function getProfile(q,cc){
+ if(!CONFIG.WORKER)throw "noworker";
+ const r=await fetch(`${CONFIG.WORKER}/api/profile?q=${encodeURIComponent(q)}&cc=${cc}`),j=await r.json();
+ if(!r.ok)throw j.error||"fail";return j;
+}
+async function loadProfile(qs){
+ pst.className="";pst.textContent=T("loading");
+ try{
+  const p=await getProfile(qs,R);lastQ=qs;PROF=true;owned=new Set(p.games.map(g=>g.appid));W={};
+  let known=0;
+  p.games.forEach(g=>{const c=gmap[g.appid];if(c){known++;const hh=Math.sqrt(g.minutes/60);c.tags.forEach(t=>W[t]=(W[t]||0)+hh)}});
+  MS=Math.max(1e-9,...games.map(sc));
+  wish=p.wishlist.map(w=>({id:w.id,name:w.name||gmap[w.id]?.name,tags:gmap[w.id]?.tags||[],initial:w.initial,final:w.final,discount:w.discount,low:false,m:0,rev:rev[w.id]})).filter(w=>w.name);
+  const top=Object.entries(W).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([t])=>T(t)).join(", ");
+  pinfo.textContent=(top?T("info",{a:known,b:p.games.length,g:top})+" ":"")+T("wInfo",{n:p.wishlist.length,d:p.wishlist.filter(w=>w.discount>0).length});
+  pst.textContent="";
+  tgw.innerHTML=CONFIG.TG_BOT?`<a class="btn" href="https://t.me/${CONFIG.TG_BOT}?start=${p.steamid}" target="_blank" rel="noopener">${T("tg")}</a>`:`<span class="btn off">${T("tgOff")}</span>`;
+  V="rec";G="all";P="all";applyLang();render();
+ }catch(e){
+  pst.className="err";pst.textContent=T(e==="private"?"pPriv":e==="notfound"?"pNF":e==="noworker"?"pNW":"pErr");
+ }
+}
+function load(){
+ CUR=REG[R].cur;applyLang();
+ Promise.all(["games.json",`${R}/prices.json`,`${R}/history.json`].map(n=>fetch(`data/${n}`).then(r=>{if(!r.ok)throw 0;return r.json()})).concat(fetch("data/reviews.json").then(r=>r.ok?r.json():{}).catch(()=>({})))).then(([g,p,h,rv])=>{
+  games=g;gmap=Object.fromEntries(g.map(x=>[x.id,x]));prices=p.items;hist=h;rev=rv;CUR=p.currency||REG[R].cur;
+  upd.textContent=T("upd",{d:p.updated});demo.hidden=!p.demo;
+  if(lastQ)loadProfile(lastQ);else render();
+ }).catch(()=>{prices={};hist={};cnt.textContent="";upd.textContent="";genres.innerHTML="";document.getElementById("prices").innerHTML="";grid.innerHTML=`<div class="empty">${T("noData",{r:T("r_"+R)})}</div>`});
+}
+regions.onclick=e=>{const b=e.target.closest("[data-r]");if(b){R=b.dataset.r;G="all";P="all";location.hash=R;load()}};
+genres.onclick=e=>{const b=e.target.closest("[data-g]");if(b){G=b.dataset.g;render()}};
+document.getElementById("prices").onclick=e=>{const b=e.target.closest("[data-p]");if(b){P=b.dataset.p;render()}};
+views.onclick=e=>{const b=e.target.closest("[data-v]");if(b){V=b.dataset.v;G="all";P="all";sort.value=V==="rec"?"match":"disc";render()}};
+grid.onclick=e=>{const c=e.target.closest("[data-id]");if(c)open_(c.dataset.id)};
+pb.onclick=()=>pq.value.trim()&&loadProfile(pq.value.trim());
+pq.onkeydown=e=>{if(e.key==="Enter")pb.click()};
+const lang_=document.getElementById("lang");
+lang_.onchange=()=>{lang=lang_.value;try{localStorage.setItem("lang",lang)}catch(e){}applyLang();render()};
+q.oninput=sort.onchange=render;
+load();
+</script></body></html>

@@ -1,0 +1,9 @@
+{"demo":true,"currency":"UAH","updated":"ДЕМО-ДАННЫЕ","items":{
+"1091500":{"initial":1299,"final":454,"discount":65,"low":true},
+"292030":{"initial":599,"final":120,"discount":80,"low":true},
+"1174180":{"initial":1999,"final":660,"discount":67,"low":false},
+"1145360":{"initial":380,"final":190,"discount":50,"low":false},
+"632470":{"initial":699,"final":175,"discount":75,"low":true},
+"367520":{"initial":250,"final":88,"discount":65,"low":true},
+"553850":{"initial":1099,"final":1099,"discount":0,"low":false},
+"1426210":{"initial":999,"final":300,"discount":70,"low":false}}}
