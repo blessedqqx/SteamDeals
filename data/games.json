@@ -1,72 +1,37 @@
 [
 {
-"id": 1091500,
-"name": "Cyberpunk 2077",
-"tags": [
-"story",
-"openworld",
-"shooter"
-]
-},
-{
-"id": 292030,
-"name": "The Witcher 3: Wild Hunt",
-"tags": [
-"story",
-"openworld"
-]
-},
-{
-"id": 1174180,
-"name": "Red Dead Redemption 2",
-"tags": [
-"story",
-"openworld"
-]
-},
-{
-"id": 1086940,
-"name": "Baldur's Gate 3",
-"tags": [
-"story",
-"coop"
-]
-},
-{
-"id": 632470,
-"name": "Disco Elysium",
-"tags": [
-"story"
-]
-},
-{
 "id": 1245620,
 "name": "Elden Ring",
 "tags": [
-"openworld",
-"coop"
+"coop",
+"openworld"
 ]
 },
 {
 "id": 1145360,
 "name": "Hades",
 "tags": [
-"indie"
+"indie",
+"story"
 ]
 },
 {
 "id": 367520,
 "name": "Hollow Knight",
 "tags": [
-"indie"
+"coop",
+"indie",
+"openworld",
+"story"
 ]
 },
 {
 "id": 413150,
 "name": "Stardew Valley",
 "tags": [
+"coop",
 "indie",
-"coop"
+"openworld"
 ]
 },
 {
@@ -78,43 +43,11 @@
 ]
 },
 {
-"id": 553850,
-"name": "Helldivers 2",
-"tags": [
-"coop",
-"shooter"
-]
-},
-{
 "id": 550,
 "name": "Left 4 Dead 2",
 "tags": [
 "coop",
 "shooter"
-]
-},
-{
-"id": 548430,
-"name": "Deep Rock Galactic",
-"tags": [
-"coop",
-"shooter"
-]
-},
-{
-"id": 782330,
-"name": "DOOM Eternal",
-"tags": [
-"shooter"
-]
-},
-{
-"id": 397540,
-"name": "Borderlands 3",
-"tags": [
-"shooter",
-"coop",
-"openworld"
 ]
 },
 {
@@ -135,20 +68,12 @@
 ]
 },
 {
-"id": 271590,
-"name": "Grand Theft Auto V",
-"tags": [
-"openworld",
-"story"
-]
-},
-{
 "id": 377160,
 "name": "Fallout 4",
 "tags": [
 "openworld",
-"story",
-"shooter"
+"shooter",
+"story"
 ]
 },
 {
@@ -179,6 +104,7 @@
 "id": 1593500,
 "name": "God of War",
 "tags": [
+"openworld",
 "story"
 ]
 },
@@ -208,19 +134,11 @@
 ]
 },
 {
-"id": 739630,
-"name": "Phasmophobia",
-"tags": [
-"horror",
-"coop"
-]
-},
-{
 "id": 1966720,
 "name": "Lethal Company",
 "tags": [
-"horror",
 "coop",
+"horror",
 "indie"
 ]
 },
@@ -228,14 +146,17 @@
 "id": 1551360,
 "name": "Forza Horizon 5",
 "tags": [
-"racing",
-"openworld"
+"coop",
+"openworld",
+"racing"
 ]
 },
 {
 "id": 289070,
 "name": "Sid Meier's Civilization VI",
 "tags": [
+"coop",
+"openworld",
 "strategy"
 ]
 },
@@ -243,26 +164,16 @@
 "id": 646570,
 "name": "Slay the Spire",
 "tags": [
-"strategy",
-"indie"
+"indie",
+"strategy"
 ]
 },
 {
 "id": 814380,
 "name": "Sekiro: Shadows Die Twice - GOTY Edition",
 "tags": [
-"story",
-"openworld"
-]
-},
-{
-"id": 3240220,
-"name": "Grand Theft Auto V Enhanced",
-"tags": [
-"coop",
-"shooter",
 "openworld",
-"racing"
+"story"
 ]
 },
 {
@@ -277,7 +188,3171 @@
 "name": "Palworld",
 "tags": [
 "coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 730,
+"name": "Counter-Strike: Global Offensive",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 359550,
+"name": "Tom Clancy's Rainbow Six Siege",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 440,
+"name": "Team Fortress 2",
+"tags": [
+"coop"
+]
+},
+{
+"id": 4000,
+"name": "Garry's Mod",
+"tags": [
+"coop"
+]
+},
+{
+"id": 2358720,
+"name": "Black Myth: Wukong",
+"tags": [
+"story"
+]
+},
+{
+"id": 227300,
+"name": "Euro Truck Simulator 2",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 346110,
+"name": "ARK: Survival Evolved",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 945360,
+"name": "Among Us",
+"tags": [
+"coop"
+]
+},
+{
+"id": 218620,
+"name": "PAYDAY 2",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 230410,
+"name": "Warframe",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 252950,
+"name": "Rocket League",
+"tags": [
+"coop",
+"racing"
+]
+},
+{
+"id": 304930,
+"name": "Unturned",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 322330,
+"name": "Don't Starve Together",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 582010,
+"name": "Monster Hunter: World",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 239140,
+"name": "Dying Light",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 620,
+"name": "Portal 2",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 322170,
+"name": "Geometry Dash",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 291550,
+"name": "Brawlhalla",
+"tags": [
+"coop"
+]
+},
+{
+"id": 108600,
+"name": "Project Zomboid",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 251570,
+"name": "7 Days to Die",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1172620,
+"name": "Sea of Thieves: 2026 Edition",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 648800,
+"name": "Raft",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 250900,
+"name": "The Binding of Isaac: Rebirth",
+"tags": [
+"coop"
+]
+},
+{
+"id": 394360,
+"name": "Hearts of Iron IV",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 284160,
+"name": "BeamNG.drive",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 72850,
+"name": "The Elder Scrolls V: Skyrim",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 264710,
+"name": "Subnautica",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 49520,
+"name": "Borderlands 2",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 1293830,
+"name": "Forza Horizon 4",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 107410,
+"name": "Arma 3",
+"tags": [
+"coop",
+"openworld",
 "shooter",
+"strategy"
+]
+},
+{
+"id": 255710,
+"name": "Cities: Skylines",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 391540,
+"name": "Undertale",
+"tags": [
+"story"
+]
+},
+{
+"id": 261550,
+"name": "Mount & Blade II: Bannerlord",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1237970,
+"name": "Titanfall 2",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1326470,
+"name": "Sons Of The Forest",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 10,
+"name": "Counter-Strike",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 203160,
+"name": "Tomb Raider Game of the Year",
+"tags": [
+"shooter",
+"story"
+]
+},
+{
+"id": 220,
+"name": "Half-Life 2",
+"tags": [
+"story"
+]
+},
+{
+"id": 976730,
+"name": "Halo: The Master Chief Collection",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 1144200,
+"name": "Ready or Not",
+"tags": [
+"coop"
+]
+},
+{
+"id": 238960,
+"name": "Path of Exile",
+"tags": [
+"coop"
+]
+},
+{
+"id": 526870,
+"name": "Satisfactory",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 22380,
+"name": "Fallout: New Vegas",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 427520,
+"name": "Factorio",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 311210,
+"name": "Call of Duty: Black Ops III",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 477160,
+"name": "Human Fall Flat",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 393380,
+"name": "Squad",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 294100,
+"name": "RimWorld",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 8930,
+"name": "Sid Meier's Civilization V",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 3164500,
+"name": "Schedule I",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 435150,
+"name": "Divinity: Original Sin 2 - Definitive Edition",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 268910,
+"name": "Cuphead",
+"tags": [
+"coop"
+]
+},
+{
+"id": 3241660,
+"name": "R.E.P.O.",
+"tags": [
+"coop"
+]
+},
+{
+"id": 240,
+"name": "Counter-Strike: Source",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 400,
+"name": "Portal",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 518790,
+"name": "theHunter: Call of the Wild",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 270880,
+"name": "American Truck Simulator",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 901583,
+"name": "Grand Theft Auto IV: Complete Edition",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 12210,
+"name": "Grand Theft Auto IV: The Complete Edition",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 883710,
+"name": "Resident Evil 2",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 319630,
+"name": "Life is Strange - Episode 1",
+"tags": [
+"story"
+]
+},
+{
+"id": 1222140,
+"name": "Detroit: Become Human",
+"tags": [
+"story"
+]
+},
+{
+"id": 48700,
+"name": "Mount & Blade: Warband",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 211820,
+"name": "Starbound",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 2183900,
+"name": "Warhammer 40,000: Space Marine 2",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 1172380,
+"name": "STAR WARS Jedi: Fallen Order",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1332010,
+"name": "Stray",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 306130,
+"name": "The Elder Scrolls Online",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 2379780,
+"name": "Balatro",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 262060,
+"name": "Darkest Dungeon",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 70,
+"name": "Half-Life",
+"tags": [
+"story"
+]
+},
+{
+"id": 2881650,
+"name": "Content Warning",
+"tags": [
+"coop"
+]
+},
+{
+"id": 8870,
+"name": "BioShock Infinite",
+"tags": [
+"story"
+]
+},
+{
+"id": 3590,
+"name": "Plants vs. Zombies GOTY Edition",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 433340,
+"name": "Slime Rancher",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 1057090,
+"name": "Ori and the Will of the Wisps",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 391220,
+"name": "Rise of the Tomb Raider",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 508440,
+"name": "Totally Accurate Battle Simulator",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 236850,
+"name": "Europa Universalis IV",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 552500,
+"name": "Warhammer: Vermintide 2",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 244850,
+"name": "Space Engineers",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1092790,
+"name": "Inscryption",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1868140,
+"name": "DAVE THE DIVER",
+"tags": [
+"story"
+]
+},
+{
+"id": 361420,
+"name": "ASTRONEER",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 457140,
+"name": "Oxygen Not Included",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 362890,
+"name": "Black Mesa",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 220200,
+"name": "Kerbal Space Program",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 581320,
+"name": "Insurgency: Sandstorm",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 204360,
+"name": "Castle Crashers",
+"tags": [
+"coop"
+]
+},
+{
+"id": 222880,
+"name": "Insurgency",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 323190,
+"name": "Frostpunk",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 225540,
+"name": "Just Cause 3",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 412020,
+"name": "Metro Exodus",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 504230,
+"name": "Celeste",
+"tags": [
+"story"
+]
+},
+{
+"id": 1604030,
+"name": "V Rising",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 335300,
+"name": "DARK SOULS II: Scholar of the First Sin",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 1643320,
+"name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 387990,
+"name": "Scrap Mechanic",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 1446780,
+"name": "MONSTER HUNTER RISE",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 305620,
+"name": "The Long Dark",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 629760,
+"name": "MORDHAU",
+"tags": [
+"coop"
+]
+},
+{
+"id": 677620,
+"name": "Splitgate: Arena Warfare",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1903340,
+"name": "Clair Obscur: Expedition 33",
+"tags": [
+"story"
+]
+},
+{
+"id": 424840,
+"name": "Little Nightmares",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 219740,
+"name": "Don't Starve",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 1167630,
+"name": "Teardown",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 356190,
+"name": "Middle-earth: Shadow of War",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 1313140,
+"name": "Cult of the Lamb",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 1259420,
+"name": "Days Gone",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 1943950,
+"name": "Escape the Backrooms",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1771300,
+"name": "Kingdom Come: Deliverance II",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 282070,
+"name": "This War of Mine",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 268500,
+"name": "XCOM 2",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 221380,
+"name": "Age of Empires II (Retired)",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 287700,
+"name": "METAL GEAR SOLID V: THE PHANTOM PAIN",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 219990,
+"name": "Grim Dawn",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1217060,
+"name": "Gunfire Reborn",
+"tags": [
+"coop"
+]
+},
+{
+"id": 233860,
+"name": "Kenshi",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 418370,
+"name": "Resident Evil 7 Biohazard",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 1942280,
+"name": "Brotato",
+"tags": [
+"coop"
+]
+},
+{
+"id": 546560,
+"name": "Half-Life: Alyx",
+"tags": [
+"story"
+]
+},
+{
+"id": 848450,
+"name": "Subnautica: Below Zero",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 613100,
+"name": "House Flipper",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 376210,
+"name": "The Isle",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 304050,
+"name": "Trove",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 516750,
+"name": "My Summer Car",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 241930,
+"name": "Middle-earth: Shadow of Mordor",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 349040,
+"name": "NARUTO SHIPPUDEN: Ultimate Ninja STORM 4",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 214950,
+"name": "Total War: ROME II - Emperor Edition",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1407200,
+"name": "World of Tanks",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 311690,
+"name": "Enter the Gungeon",
+"tags": [
+"coop"
+]
+},
+{
+"id": 962130,
+"name": "Grounded",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 1248130,
+"name": "Farming Simulator 22",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 753640,
+"name": "Outer Wilds",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 235460,
+"name": "METAL GEAR RISING: REVENGEANCE",
+"tags": [
+"story"
+]
+},
+{
+"id": 234140,
+"name": "Mad Max",
+"tags": [
+"openworld",
+"racing",
+"shooter",
+"story"
+]
+},
+{
+"id": 254700,
+"name": "Resident Evil 4 (2005)",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 205100,
+"name": "Dishonored",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 206440,
+"name": "To the Moon",
+"tags": [
+"story"
+]
+},
+{
+"id": 1150690,
+"name": "OMORI",
+"tags": [
+"story"
+]
+},
+{
+"id": 1454400,
+"name": "Cookie Clicker",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 750920,
+"name": "Shadow of the Tomb Raider: Definitive Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 881100,
+"name": "Noita",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 211420,
+"name": "DARK SOULS: Prepare To Die Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1203620,
+"name": "Enshrouded",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 206420,
+"name": "Saints Row IV: Re-Elected",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 1888160,
+"name": "ARMORED CORE VI FIRES OF RUBICON",
+"tags": [
+"coop"
+]
+},
+{
+"id": 602960,
+"name": "Barotrauma",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 212680,
+"name": "FTL: Faster Than Light",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 588430,
+"name": "Fallout Shelter",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 223710,
+"name": "Cry of Fear",
+"tags": [
+"coop"
+]
+},
+{
+"id": 224260,
+"name": "No More Room in Hell",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 239030,
+"name": "Papers, Please",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 203770,
+"name": "Crusader Kings II",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 218230,
+"name": "PlanetSide 2",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 35140,
+"name": "Batman: Arkham Asylum Game of the Year Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 414340,
+"name": "Hellblade: Senua's Sacrifice",
+"tags": [
+"story"
+]
+},
+{
+"id": 728880,
+"name": "Overcooked! 2",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 233450,
+"name": "Prison Architect",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 1363080,
+"name": "Manor Lords",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 238460,
+"name": "BattleBlock Theater",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1237950,
+"name": "STAR WARS Battlefront II",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 460950,
+"name": "Katana ZERO",
+"tags": [
+"story"
+]
+},
+{
+"id": 493340,
+"name": "Planet Coaster",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 200260,
+"name": "Batman: Arkham City - Game of the Year Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 55230,
+"name": "Saints Row: The Third",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 265930,
+"name": "Goat Simulator",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 2670630,
+"name": "Supermarket Simulator",
+"tags": [
+"coop"
+]
+},
+{
+"id": 304430,
+"name": "INSIDE",
+"tags": [
+"story"
+]
+},
+{
+"id": 1286830,
+"name": "STAR WARS: The Old Republic",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1250,
+"name": "Killing Floor",
+"tags": [
+"coop"
+]
+},
+{
+"id": 2709570,
+"name": "Supermarket Together",
+"tags": [
+"coop"
+]
+},
+{
+"id": 387290,
+"name": "Ori and the Blind Forest: Definitive Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1304930,
+"name": "The Outlast Trials",
+"tags": [
+"coop"
+]
+},
+{
+"id": 17390,
+"name": "SPORE",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 3146520,
+"name": "WEBFISHING",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 219640,
+"name": "Chivalry: Medieval Warfare",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1790600,
+"name": "DRAGON BALL: Sparking! ZERO",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 2215430,
+"name": "Ghost of Tsushima DIRECTOR'S CUT",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 489520,
+"name": "Minion Masters",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 466560,
+"name": "Northgard: Definitive Edition",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 201270,
+"name": "Total War: SHOGUN 2",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1145350,
+"name": "Hades II",
+"tags": [
+"story"
+]
+},
+{
+"id": 1139900,
+"name": "Ghostrunner",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 752590,
+"name": "A Plague Tale: Innocence",
+"tags": [
+"story"
+]
+},
+{
+"id": 403640,
+"name": "Dishonored 2",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 495420,
+"name": "State of Decay 2: Juggernaut Edition",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 493520,
+"name": "GTFO",
+"tags": [
+"coop"
+]
+},
+{
+"id": 500,
+"name": "Left 4 Dead",
+"tags": [
+"coop"
+]
+},
+{
+"id": 298110,
+"name": "Far Cry 4",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 214490,
+"name": "Alien: Isolation",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 1282100,
+"name": "REMNANT II",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 285900,
+"name": "Gang Beasts",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1384160,
+"name": "GUILTY GEAR -STRIVE-",
+"tags": [
+"story"
+]
+},
+{
+"id": 274190,
+"name": "Broforce",
+"tags": [
+"coop"
+]
+},
+{
+"id": 871720,
+"name": "Ultimate Custom Night",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 409710,
+"name": "BioShock Remastered",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 10180,
+"name": "Call of Duty: Modern Warfare 2 (2009)",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 418460,
+"name": "Rising Storm 2: Vietnam",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 261570,
+"name": "Ori and the Blind Forest",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 209000,
+"name": "Batman: Arkham Origins",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 333930,
+"name": "Dirty Bomb",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 201810,
+"name": "Wolfenstein: The New Order",
+"tags": [
+"story"
+]
+},
+{
+"id": 200510,
+"name": "XCOM: Enemy Unknown",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 203140,
+"name": "Hitman: Absolution",
+"tags": [
+"shooter",
+"story",
+"strategy"
+]
+},
+{
+"id": 246620,
+"name": "Plague Inc: Evolved",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 33230,
+"name": "Assassin's Creed 2",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1284190,
+"name": "The Planet Crafter",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 880940,
+"name": "Pummel Party",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 420530,
+"name": "OneShot",
+"tags": [
+"story"
+]
+},
+{
+"id": 6060,
+"name": "STAR WARS Battlefront II (Classic, 2005)",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"strategy"
+]
+},
+{
+"id": 2567870,
+"name": "Chained Together",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 617290,
+"name": "Remnant: From the Ashes",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 2593370,
+"name": "The Hungry Lamb: Traveling in the Late Ming Dynasty",
+"tags": [
+"story"
+]
+},
+{
+"id": 1627720,
+"name": "Lies of P",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 253230,
+"name": "A Hat in Time",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 645630,
+"name": "Car Mechanic Simulator 2018",
+"tags": [
+"coop",
+"openworld",
+"racing",
+"strategy"
+]
+},
+{
+"id": 1693980,
+"name": "Dead Space",
+"tags": [
+"shooter"
+]
+},
+{
+"id": 480490,
+"name": "Prey",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 8190,
+"name": "Just Cause 2",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+]
+},
+{
+"id": 900883,
+"name": "The Elder Scrolls IV: Oblivion Game of the Year Edition Deluxe (2009)",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 22330,
+"name": "The Elder Scrolls IV: Oblivion Game of the Year Edition (2009)",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 22370,
+"name": "Fallout 3: Game of the Year Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 10090,
+"name": "Call of Duty: World at War",
+"tags": [
+"coop"
+]
+},
+{
+"id": 552100,
+"name": "Brick Rigs",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 346010,
+"name": "Besiege",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 108710,
+"name": "Alan Wake",
+"tags": [
+"shooter",
+"story"
+]
+},
+{
+"id": 21690,
+"name": "Resident Evil 5",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 22490,
+"name": "Fallout: New Vegas",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 644930,
+"name": "They Are Billions",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 3097560,
+"name": "Liar's Bar",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 933110,
+"name": "Age of Empires III: Definitive Edition",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 386940,
+"name": "Ultimate Chicken Horse",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 502500,
+"name": "ACE COMBAT 7: SKIES UNKNOWN",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 881020,
+"name": "Granblue Fantasy: Relink",
+"tags": [
+"coop"
+]
+},
+{
+"id": 4500,
+"name": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 202970,
+"name": "Call of Duty: Black Ops II",
+"tags": [
+"coop"
+]
+},
+{
+"id": 367500,
+"name": "Dragon's Dogma: Dark Arisen",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 200210,
+"name": "Realm of the Mad God Exalt",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 972660,
+"name": "Spiritfarer: Farewell Edition",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 603850,
+"name": "Age of History II",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1659040,
+"name": "HITMAN World of Assassination",
+"tags": [
+"openworld",
+"shooter"
+]
+},
+{
+"id": 1325200,
+"name": "Nioh 2 – The Complete Edition",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 1129580,
+"name": "Medieval Dynasty",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 501300,
+"name": "What Remains of Edith Finch",
+"tags": [
+"story"
+]
+},
+{
+"id": 1987080,
+"name": "Inside the Backrooms",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 221910,
+"name": "The Stanley Parable",
+"tags": [
+"story"
+]
+},
+{
+"id": 690790,
+"name": "DiRT Rally 2.0",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 244450,
+"name": "Men of War: Assault Squad 2",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 200710,
+"name": "Torchlight II",
+"tags": [
+"coop"
+]
+},
+{
+"id": 236430,
+"name": "DARK SOULS II",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 505460,
+"name": "Foxhole",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1562430,
+"name": "DREDGE",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 568220,
+"name": "Lobotomy Corporation | Monster Management Simulation",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1465360,
+"name": "SnowRunner",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 599140,
+"name": "Graveyard Keeper",
+"tags": [
+"story"
+]
+},
+{
+"id": 860510,
+"name": "Little Nightmares II",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 2161700,
+"name": "Persona 3 Reload",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 843380,
+"name": "Super Animal Royale",
+"tags": [
+"coop"
+]
+},
+{
+"id": 312520,
+"name": "Rain World",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 242920,
+"name": "Banished",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 420,
+"name": "Half-Life 2: Episode Two",
+"tags": [
+"story"
+]
+},
+{
+"id": 527230,
+"name": "For The King",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1669980,
+"name": "Volcano Princess",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 225080,
+"name": "Brothers - A Tale of Two Sons",
+"tags": [
+"story"
+]
+},
+{
+"id": 751780,
+"name": "Forager",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 204450,
+"name": "Call of Juarez: Gunslinger",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 42700,
+"name": "Call of Duty: Black Ops",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 24240,
+"name": "PAYDAY The Heist",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 310560,
+"name": "DiRT Rally",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 32470,
+"name": "STAR WARS Empire at War - Gold Pack",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1088850,
+"name": "Marvel's Guardians of the Galaxy",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 805550,
+"name": "Assetto Corsa Competizione",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 745920,
+"name": "Temtem",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 322500,
+"name": "SUPERHOT",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 2551020,
+"name": "One-armed robber",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 228380,
+"name": "Wreckfest",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 312530,
+"name": "Duck Game",
+"tags": [
+"coop"
+]
+},
+{
+"id": 115300,
+"name": "Call of Duty: Modern Warfare 3 (2011)",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 675010,
+"name": "MudRunner",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 35450,
+"name": "Red Orchestra 2: Heroes of Stalingrad with Rising Storm",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 412220,
+"name": "DDraceNetwork",
+"tags": [
+"coop",
+"racing"
+]
+},
+{
+"id": 107100,
+"name": "Bastion",
+"tags": [
+"story"
+]
+},
+{
+"id": 242860,
+"name": "Verdun",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1462040,
+"name": "FINAL FANTASY VII REMAKE INTERGRADE",
+"tags": [
+"story"
+]
+},
+{
+"id": 554620,
+"name": "Life is Strange: Before the Storm",
+"tags": [
+"story"
+]
+},
+{
+"id": 223750,
+"name": "DCS World Steam Edition",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 24960,
+"name": "Battlefield: Bad Company 2",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 2021910,
+"name": "FPS Chess",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 207140,
+"name": "SpeedRunners",
+"tags": [
+"coop",
+"racing"
+]
+},
+{
+"id": 1244460,
+"name": "Jurassic World Evolution 2",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 438040,
+"name": "Shakes and Fidget",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 334230,
+"name": "Town of Salem",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 265630,
+"name": "Fistful of Frags",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1119730,
+"name": "Ranch Simulator: Build, Hunt, Farm",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 1562700,
+"name": "SANABI",
+"tags": [
+"story"
+]
+},
+{
+"id": 704850,
+"name": "Thief Simulator",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 239820,
+"name": "Game Dev Tycoon",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 475150,
+"name": "Titan Quest Anniversary Edition",
+"tags": [
+"coop",
+"openworld",
+"story"
+]
+},
+{
+"id": 10500,
+"name": "Total War: EMPIRE – Definitive Edition",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 266840,
+"name": "Age of Mythology: Extended Edition",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 824270,
+"name": "KovaaK's",
+"tags": [
+"shooter"
+]
+},
+{
+"id": 1135690,
+"name": "Unpacking",
+"tags": [
+"story"
+]
+},
+{
+"id": 1134570,
+"name": "F1 2021",
+"tags": [
+"coop",
+"racing"
+]
+},
+{
+"id": 325610,
+"name": "Total War: ATTILA",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 326460,
+"name": "ShellShock Live",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 10190,
+"name": "Call of Duty: Modern Warfare 2 (2009)",
+"tags": [
+"coop",
+"story",
+"strategy"
+]
+},
+{
+"id": 2679460,
+"name": "Metaphor: ReFantazio",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1282730,
+"name": "Loop Hero",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 638230,
+"name": "Journey",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 1256670,
+"name": "Library Of Ruina",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1922560,
+"name": "Plants vs. Zombies Garden Warfare 2: Deluxe Edition",
+"tags": [
+"coop",
+"shooter"
+]
+},
+{
+"id": 939400,
+"name": "LoveChoice",
+"tags": [
+"story"
+]
+},
+{
+"id": 1483870,
+"name": "Draw & Guess",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1657630,
+"name": "Slime Rancher 2",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 2300320,
+"name": "Farming Simulator 25",
+"tags": [
+"coop"
+]
+},
+{
+"id": 4700,
+"name": "Total War: MEDIEVAL II – Definitive Edition",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 597170,
+"name": "Clone Drone in the Danger Zone",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1213210,
+"name": "Command & Conquer Remastered Collection",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 274940,
+"name": "Depth",
+"tags": [
+"coop"
+]
+},
+{
+"id": 8980,
+"name": "Borderlands Game of the Year",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 105450,
+"name": "Age of Empires III (2007)",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 641990,
+"name": "The Escapists 2",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 202990,
+"name": "Call of Duty: Black Ops II",
+"tags": [
+"coop"
+]
+},
+{
+"id": 2212330,
+"name": "Your Only Move Is HUSTLE",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 380,
+"name": "Half-Life 2: Episode One",
+"tags": [
+"story"
+]
+},
+{
+"id": 1100600,
+"name": "Football Manager 2020",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 32370,
+"name": "STAR WARS Knights of the Old Republic",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1062090,
+"name": "Timberborn",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 637090,
+"name": "BATTLETECH",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 394510,
+"name": "HELLDIVERS Dive Harder Edition",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 1336490,
+"name": "Against the Storm",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 2322010,
+"name": "God of War Ragnarök",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 42910,
+"name": "Magicka",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 225840,
+"name": "Sven Co-op",
+"tags": [
+"coop"
+]
+},
+{
+"id": 942970,
+"name": "Unheard - Voices of Crime",
+"tags": [
+"story"
+]
+},
+{
+"id": 427410,
+"name": "Abiotic Factor",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1449690,
+"name": "The Walking Dead: The Telltale Definitive Series",
+"tags": [
+"story"
+]
+},
+{
+"id": 1268750,
+"name": "Starship Troopers: Extermination",
+"tags": [
+"coop"
+]
+},
+{
+"id": 41700,
+"name": "S.T.A.L.K.E.R.: Call of Pripyat",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 7670,
+"name": "BioShock",
+"tags": [
+"story"
+]
+},
+{
+"id": 1876890,
+"name": "Wandering Sword",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 460920,
+"name": "Steep",
+"tags": [
+"coop",
+"openworld",
+"racing",
+"shooter"
+]
+},
+{
+"id": 2186680,
+"name": "Warhammer 40,000: Rogue Trader",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 237930,
+"name": "Transistor",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1703340,
+"name": "The Stanley Parable: Ultra Deluxe",
+"tags": [
+"story"
+]
+},
+{
+"id": 413410,
+"name": "Danganronpa: Trigger Happy Havoc",
+"tags": [
+"story"
+]
+},
+{
+"id": 55150,
+"name": "Warhammer 40,000: Space Marine - Anniversary Edition",
+"tags": [
+"coop",
+"shooter",
+"story"
+]
+},
+{
+"id": 268050,
+"name": "The Evil Within",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"story",
+"strategy"
+]
+},
+{
+"id": 2273430,
+"name": "BlazBlue Entropy Effect",
+"tags": [
+"story"
+]
+},
+{
+"id": 493490,
+"name": "City Car Driving",
+"tags": [
+"openworld",
+"racing"
+]
+},
+{
+"id": 1049410,
+"name": "Superliminal",
+"tags": [
+"story"
+]
+},
+{
+"id": 220440,
+"name": "DmC: Devil May Cry",
+"tags": [
+"story"
+]
+},
+{
+"id": 1392820,
+"name": "Milk inside a bag of milk inside a bag of milk",
+"tags": [
+"story"
+]
+},
+{
+"id": 2475490,
+"name": "Mouthwashing",
+"tags": [
+"story"
+]
+},
+{
+"id": 1190000,
+"name": "Car Mechanic Simulator 2021",
+"tags": [
+"openworld",
+"racing",
+"strategy"
+]
+},
+{
+"id": 569480,
+"name": "Kingdoms and Castles",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1659420,
+"name": "UNCHARTED: Legacy of Thieves Collection",
+"tags": [
+"shooter",
+"story"
+]
+},
+{
+"id": 368500,
+"name": "Assassin's Creed Syndicate",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 248820,
+"name": "Risk of Rain (2013)",
+"tags": [
+"coop"
+]
+},
+{
+"id": 1527950,
+"name": "Wartales",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 622650,
+"name": "Bendy and the Ink Machine",
+"tags": [
+"story"
+]
+},
+{
+"id": 444640,
+"name": "Bloons TD Battles",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 373420,
+"name": "Divinity: Original Sin - Enhanced Edition",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 1262580,
+"name": "Need for Speed Payback",
+"tags": [
+"coop",
+"openworld",
+"racing",
+"strategy"
+]
+},
+{
+"id": 288160,
+"name": "The Room",
+"tags": [
+"story"
+]
+},
+{
+"id": 278360,
+"name": "A Story About My Uncle",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 601430,
+"name": "The Evil Within 2",
+"tags": [
+"openworld",
+"shooter",
+"story"
+]
+},
+{
+"id": 1809540,
+"name": "Nine Sols",
+"tags": [
+"story"
+]
+},
+{
+"id": 975370,
+"name": "Dwarf Fortress",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 1189490,
+"name": "觅长生",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 1584090,
+"name": "Touhou Mystia's Izakaya",
+"tags": [
+"story"
+]
+},
+{
+"id": 238010,
+"name": "Deus Ex: Human Revolution - Director's Cut",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 655500,
+"name": "MX Bikes",
+"tags": [
+"racing"
+]
+},
+{
+"id": 585420,
+"name": "Trailmakers",
+"tags": [
+"coop",
+"openworld",
+"racing"
+]
+},
+{
+"id": 960990,
+"name": "Beyond: Two Souls",
+"tags": [
+"coop",
+"story"
+]
+},
+{
+"id": 39140,
+"name": "FINAL FANTASY VII",
+"tags": [
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 1337520,
+"name": "Risk of Rain Returns",
+"tags": [
+"coop"
+]
+},
+{
+"id": 475550,
+"name": "Beholder",
+"tags": [
+"story",
+"strategy"
+]
+},
+{
+"id": 1966900,
+"name": "20 Minutes Till Dawn",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 335240,
+"name": "Transformice",
+"tags": [
+"coop",
+"racing",
+"strategy"
+]
+},
+{
+"id": 17470,
+"name": "Dead Space (2008)",
+"tags": [
+"shooter",
+"story"
+]
+},
+{
+"id": 1455840,
+"name": "Dorfromantik",
+"tags": [
+"openworld",
+"strategy"
+]
+},
+{
+"id": 230290,
+"name": "Universe Sandbox",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 418500,
+"name": "Rising Storm 2: Vietnam",
+"tags": [
+"strategy"
+]
+},
+{
+"id": 324800,
+"name": "Shadow Warrior 2",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 492720,
+"name": "Tropico 6",
+"tags": [
+"coop",
+"openworld",
+"story",
+"strategy"
+]
+},
+{
+"id": 238090,
+"name": "Sniper Elite 3",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"strategy"
+]
+},
+{
+"id": 1211020,
+"name": "Wobbly Life",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 774801,
+"name": "Crab Champions",
+"tags": [
+"coop",
+"shooter",
+"strategy"
+]
+},
+{
+"id": 304240,
+"name": "Resident Evil",
+"tags": [
+"shooter",
+"story"
+]
+},
+{
+"id": 204300,
+"name": "Awesomenauts",
+"tags": [
+"coop",
+"strategy"
+]
+},
+{
+"id": 391720,
+"name": "Layers of Fear (2016)",
+"tags": [
+"story"
+]
+},
+{
+"id": 464920,
+"name": "Surviving Mars",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 80,
+"name": "Counter-Strike: Condition Zero",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+]
+},
+{
+"id": 22320,
+"name": "The Elder Scrolls III: Morrowind Game of the Year Edition",
+"tags": [
+"openworld",
+"story"
+]
+},
+{
+"id": 1084600,
+"name": "My Time at Sandrock",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 249130,
+"name": "LEGO Marvel Super Heroes",
+"tags": [
+"coop",
+"openworld"
+]
+},
+{
+"id": 1262350,
+"name": "SIGNALIS",
+"tags": [
+"shooter"
+]
+},
+{
+"id": 233130,
+"name": "Shadow Warrior",
+"tags": [
 "openworld"
 ]
 }
