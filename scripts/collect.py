@@ -13,7 +13,11 @@ def run(cc):
     for i in range(0, len(games), BATCH):
         ids = ",".join(str(g["id"]) for g in games[i:i+BATCH])
         url = f"https://store.steampowered.com/api/appdetails?appids={ids}&cc={cc}&filters=price_overview"
-        data = json.load(urllib.request.urlopen(url, timeout=30))
+        data = None
+        for attempt in range(3):
+            try: data = json.load(urllib.request.urlopen(url, timeout=60)); break
+            except Exception as e: print(cc, "повтор", attempt + 1, e); time.sleep(10)
+        if not data: continue
         for appid, r in data.items():
             d = r.get("data")
             po = d.get("price_overview") if isinstance(d, dict) else None
@@ -26,6 +30,7 @@ def run(cc):
             if not h or h[-1][1] != final: h.append([today, final])
             items[appid] = {"initial": initial, "final": final, "discount": po["discount_percent"], "low": low}
         time.sleep(2)
+    if not items: raise RuntimeError("Steam не вернул цен, старые данные оставлены")
     json.dump({"demo": False, "updated": today, "currency": cur, "items": items}, open(f"data/{cc}/prices.json", "w", encoding="utf-8"), ensure_ascii=False)
     json.dump(hist, open(f"data/{cc}/history.json", "w", encoding="utf-8"), ensure_ascii=False)
     print(cc, "ok:", len(items), "игр", cur)

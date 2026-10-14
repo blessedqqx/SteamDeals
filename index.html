@@ -1,4 +1,4 @@
-<<!doctype html>
+<!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Steam Deals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@600;800&display=swap">
@@ -30,7 +30,8 @@ h1{font-size:clamp(24px,4vw,38px);margin:32px 0 8px}.sub{color:#9aa7b5;margin:0 
 .old{color:#9aa7b5;text-decoration:line-through;font-size:14px}.new{margin-left:auto;font-weight:800;font-size:18px}
 .tag{font-size:13px;color:#f2b84b;font-weight:600}
 .meta{display:flex;gap:12px;font-size:13px;font-weight:700;flex-wrap:wrap}.hi{color:#7be0a4}.mid{color:#f2b84b}.lo{color:#9aa7b5}.mt{color:#8ab4ff}
-dialog{background:#1a212b;color:#e8edf3;border:0;border-radius:20px;padding:28px;width:min(760px,94vw)}dialog::backdrop{background:#000a}
+dialog{background:#1a212b;color:#e8edf3;border:0;border-radius:20px;padding:28px;width:min(760px,94vw);max-height:92vh;overflow:auto}
+.mi{color:#9aa7b5;font-size:14px;margin:0 0 10px}.dsc2{color:#d5dde6;line-height:1.55;margin:0 0 14px}dialog::backdrop{background:#000a}
 .kv{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #263040}.kv span{color:#9aa7b5}
 .hint{padding:12px 14px;border-radius:10px;margin:14px 0;font-weight:700;background:#263040}.hint.good{background:#17332a;color:#9ff0c0}.hint.wait{background:#3a2f12;color:#ffd887}
 .demo{background:#f2b84b;color:#1a1200;text-align:center;font-weight:800;padding:8px}.empty{color:#9aa7b5;padding:40px 0}
@@ -54,20 +55,22 @@ dialog{background:#1a212b;color:#e8edf3;border:0;border-radius:20px;padding:28px
 <script>
 const CONFIG={WORKER:"",TG_BOT:""}; // адрес воркера и имя Telegram-бота (без @), см. README
 const L={
-ru:{demo:"Демо-данные.",title:"Лучшие игры Steam по лучшей цене",sub:"Скидки по регионам, обновляются каждый день.",region:"РЕГИОН",genre:"ЖАНР",price:"СКИДКА И ЦЕНА",search:"Поиск игры",found:"Найдено игр: {n}",sDisc:"Сначала большая скидка",sCheap:"Сначала дешёвые",sName:"По названию",sRate:"По отзывам",sMatch:"По совпадению с вами",all:"Все",story:"Сюжетные",coop:"Кооператив",shooter:"Шутеры",openworld:"Открытый мир",horror:"Хоррор",indie:"Инди",racing:"Гонки",strategy:"Стратегии",allP:"Все цены",d50:"−50% и больше",d75:"−75% и больше",upTo:"До {v}",low:"Исторический минимум",free:"Бесплатно",close:"Закрыть",now:"Сейчас",reg:"Обычная цена",min:"Минимум за время наблюдений",steam:"Открыть в Steam",hGood:"Хорошая цена: на уровне минимума",hWait:"Можно подождать: бывало до −{n}%",hNorm:"Обычная для этой игры скидка",hFew:"Мало данных: история цен только копится",few:"История копится с первого запуска сборщика. Пока мало точек.",noData:"Для региона «{r}» пока нет данных. Они появятся после первого запуска сборщика.",profT:"Ваш профиль Steam",profD:"Вставьте ссылку на профиль или SteamID: покажем вишлист со скидками и подберём игры по вашей библиотеке.",profPh:"steamcommunity.com/id/... или SteamID",profBtn:"Показать",loading:"Загрузка...",pPriv:"Профиль или список игр закрыт. В Steam: Профиль, Настройки приватности, «Сведения об играх» → Открытые.",pNF:"Профиль не найден. Проверьте ссылку.",pNW:"Подбор по профилю не настроен: нужен серверный модуль (см. README).",pErr:"Не удалось загрузить профиль. Попробуйте позже.",vAll:"Все скидки",vWish:"Мой вишлист",vRec:"Подобрано для вас",match:"Совпадение {n}%",info:"Узнали {a} из {b} ваших игр. Больше всего вы играете в: {g}.",wInfo:"В вишлисте игр: {n}, со скидкой: {d}.",tg:"Уведомления о вишлисте в Telegram",tgOff:"Telegram-бот не настроен",noRes:"Ничего не найдено. Попробуйте другой фильтр.",more:"Показать ещё",upd:"Обновлено: {d}",r_ua:"Украина",r_us:"США",r_kz:"Казахстан",r_ru:"Россия",rev:"отзывов"},
-uk:{demo:"Демо-дані.",title:"Найкращі ігри Steam за найкращою ціною",sub:"Знижки за регіонами, оновлюються щодня.",region:"РЕГІОН",genre:"ЖАНР",price:"ЗНИЖКА І ЦІНА",search:"Пошук гри",found:"Знайдено ігор: {n}",sDisc:"Спочатку більша знижка",sCheap:"Спочатку дешеві",sName:"За назвою",sRate:"За відгуками",sMatch:"За збігом з вами",all:"Усі",story:"Сюжетні",coop:"Кооператив",shooter:"Шутери",openworld:"Відкритий світ",horror:"Хорор",indie:"Інді",racing:"Перегони",strategy:"Стратегії",allP:"Усі ціни",d50:"−50% і більше",d75:"−75% і більше",upTo:"До {v}",low:"Історичний мінімум",free:"Безкоштовно",close:"Закрити",now:"Зараз",reg:"Звичайна ціна",min:"Мінімум за час спостережень",steam:"Відкрити в Steam",hGood:"Хороша ціна: на рівні мінімуму",hWait:"Можна зачекати: бувало до −{n}%",hNorm:"Звичайна для цієї гри знижка",hFew:"Мало даних: історія цін лише накопичується",few:"Історія накопичується з першого запуску збирача. Поки мало точок.",noData:"Для регіону «{r}» поки немає даних. З'являться після першого запуску збирача.",profT:"Ваш профіль Steam",profD:"Вставте посилання на профіль або SteamID: покажемо вішліст зі знижками й підберемо ігри за вашою бібліотекою.",profPh:"steamcommunity.com/id/... або SteamID",profBtn:"Показати",loading:"Завантаження...",pPriv:"Профіль або список ігор закритий. У Steam: Профіль, Налаштування приватності, «Відомості про ігри» → Відкриті.",pNF:"Профіль не знайдено. Перевірте посилання.",pNW:"Добір за профілем не налаштовано: потрібен серверний модуль (див. README).",pErr:"Не вдалося завантажити профіль. Спробуйте пізніше.",vAll:"Усі знижки",vWish:"Мій вішліст",vRec:"Підібрано для вас",match:"Збіг {n}%",info:"Впізнали {a} з {b} ваших ігор. Найбільше ви граєте в: {g}.",wInfo:"У вішлісті ігор: {n}, зі знижкою: {d}.",tg:"Сповіщення про вішліст у Telegram",tgOff:"Telegram-бот не налаштований",noRes:"Нічого не знайдено. Спробуйте інший фільтр.",more:"Показати ще",upd:"Оновлено: {d}",r_ua:"Україна",r_us:"США",r_kz:"Казахстан",r_ru:"Росія",rev:"відгуків"},
-en:{demo:"Demo data.",title:"The best Steam games at the best price",sub:"Deals by region, updated daily.",region:"REGION",genre:"GENRE",price:"DISCOUNT AND PRICE",search:"Search games",found:"Games found: {n}",sDisc:"Biggest discount first",sCheap:"Cheapest first",sName:"By name",sRate:"By reviews",sMatch:"Best match for you",all:"All",story:"Story-rich",coop:"Co-op",shooter:"Shooters",openworld:"Open world",horror:"Horror",indie:"Indie",racing:"Racing",strategy:"Strategy",allP:"All prices",d50:"−50% or more",d75:"−75% or more",upTo:"Up to {v}",low:"All-time low",free:"Free",close:"Close",now:"Now",reg:"Regular price",min:"Lowest seen so far",steam:"Open on Steam",hGood:"Good price: at the lowest level",hWait:"Could wait: has been as low as −{n}%",hNorm:"Typical discount for this game",hFew:"Not enough data: price history is still building",few:"History builds up from the first collector run. Few points so far.",noData:"No data for “{r}” yet. It will appear after the first collector run.",profT:"Your Steam profile",profD:"Paste a profile link or SteamID: we'll show your wishlist deals and pick games based on your library.",profPh:"steamcommunity.com/id/... or SteamID",profBtn:"Show",loading:"Loading...",pPriv:"Profile or game list is private. In Steam: Profile, Privacy Settings, “Game details” → Public.",pNF:"Profile not found. Check the link.",pNW:"Profile features aren't set up: a server module is required (see README).",pErr:"Couldn't load the profile. Try again later.",vAll:"All deals",vWish:"My wishlist",vRec:"Picked for you",match:"Match {n}%",info:"Recognized {a} of your {b} games. You play most: {g}.",wInfo:"Wishlist games: {n}, on sale: {d}.",tg:"Wishlist alerts in Telegram",tgOff:"Telegram bot is not set up",noRes:"Nothing found. Try another filter.",more:"Show more",upd:"Updated: {d}",r_ua:"Ukraine",r_us:"USA",r_kz:"Kazakhstan",r_ru:"Russia",rev:"reviews"}};
+ru:{demo:"Демо-данные.",title:"Лучшие игры Steam по лучшей цене",sub:"Скидки по регионам, обновляются каждый день.",region:"РЕГИОН",genre:"ЖАНР",price:"СКИДКА И ЦЕНА",search:"Поиск игры",found:"Найдено игр: {n}",sPop:"Популярные",sDisc:"Сначала большая скидка",sCheap:"Сначала дешёвые",sName:"По названию",sRate:"По отзывам",sMatch:"По совпадению с вами",all:"Все",story:"Сюжетные",coop:"Кооператив",shooter:"Шутеры",openworld:"Открытый мир",horror:"Хоррор",indie:"Инди",racing:"Гонки",strategy:"Стратегии",allP:"Все цены",d50:"−50%",d75:"−75%",upTo:"До {v}",low:"Исторический минимум",free:"Бесплатно",close:"Закрыть",now:"Сейчас",reg:"Обычная цена",min:"Минимум за время наблюдений",steam:"Открыть в Steam",hGood:"Хорошая цена: на уровне минимума",hWait:"Можно подождать: бывало до −{n}%",hNorm:"Обычная для этой игры скидка",hFew:"Мало данных: история цен только копится",few:"История копится с первого запуска сборщика. Пока мало точек.",noData:"Для региона «{r}» пока нет данных. Они появятся после первого запуска сборщика.",profT:"Ваш профиль Steam",profD:"Вставьте ссылку на профиль или SteamID: покажем вишлист со скидками и подберём игры по вашей библиотеке.",profPh:"steamcommunity.com/id/... или SteamID",profBtn:"Показать",loading:"Загрузка...",pPriv:"Профиль или список игр закрыт. В Steam: Профиль, Настройки приватности, «Сведения об играх» → Открытые.",pNF:"Профиль не найден. Проверьте ссылку.",pNW:"Подбор по профилю не настроен: нужен серверный модуль (см. README).",pErr:"Не удалось загрузить профиль. Попробуйте позже.",vAll:"Все скидки",vWish:"Мой вишлист",vRec:"Подобрано для вас",match:"Совпадение {n}%",info:"Узнали {a} из {b} ваших игр. Больше всего вы играете в: {g}.",wInfo:"В вишлисте игр: {n}, со скидкой: {d}.",tg:"Уведомления о вишлисте в Telegram",tgOff:"Telegram-бот не настроен",noRes:"Ничего не найдено. Попробуйте другой фильтр.",vFew:"Пока мало данных для совета: история цен копится с первого запуска. Загляните через пару недель.",young:"(данных пока немного, совет приблизительный)",vBest:"Берите сейчас: скидка −{c}% лучшая за всё время наблюдений.",vAlways:"Ждать смысла нет: игра почти всегда продаётся примерно со скидкой −{c}%, а заметно глубже не бывает.",vWait:"Лучше подождать: бывало до −{b}%.",vOk:"Хорошая скидка: близка к лучшей из бывших, можно брать.",vNone:"За время наблюдений скидок на эту игру не было. Если она нужна, берите.",vWaitNo:"Сейчас без скидки, но бывало до −{b}%. Лучше подождать.",vSmall:"Скидки у этой игры небольшие (до −{b}%), ждать особого смысла нет.",vSale:"Ближайшая крупная распродажа: {n}, через {k} дн.",sWin:"Зимняя распродажа",sSpr:"Весенняя распродажа",sSum:"Летняя распродажа",sAut:"Осенняя распродажа",bestSeen:"Лучшая скидка за время наблюдений",actT:"Активность игроков по месяцам",actNote:"Это число отзывов за месяц, а не продажи: Steam не публикует точные продажи, но отзывы растут вместе с числом покупателей. Пик: {m}, отзывов: {n}.",owners:"Владельцев (оценка SteamSpy)",mln:"млн",ths:"тыс.",dev:"Разработчик",rel:"Выход",noDesc:"Описание появится после очередного обновления данных.",more:"Показать ещё",upd:"Обновлено: {d}",r_ua:"Украина",r_us:"США",r_kz:"Казахстан",r_ru:"Россия",rev:"отзывов"},
+uk:{demo:"Демо-дані.",title:"Найкращі ігри Steam за найкращою ціною",sub:"Знижки за регіонами, оновлюються щодня.",region:"РЕГІОН",genre:"ЖАНР",price:"ЗНИЖКА І ЦІНА",search:"Пошук гри",found:"Знайдено ігор: {n}",sPop:"Популярні",sDisc:"Спочатку більша знижка",sCheap:"Спочатку дешеві",sName:"За назвою",sRate:"За відгуками",sMatch:"За збігом з вами",all:"Усі",story:"Сюжетні",coop:"Кооператив",shooter:"Шутери",openworld:"Відкритий світ",horror:"Хорор",indie:"Інді",racing:"Перегони",strategy:"Стратегії",allP:"Усі ціни",d50:"−50%",d75:"−75%",upTo:"До {v}",low:"Історичний мінімум",free:"Безкоштовно",close:"Закрити",now:"Зараз",reg:"Звичайна ціна",min:"Мінімум за час спостережень",steam:"Відкрити в Steam",hGood:"Хороша ціна: на рівні мінімуму",hWait:"Можна зачекати: бувало до −{n}%",hNorm:"Звичайна для цієї гри знижка",hFew:"Мало даних: історія цін лише накопичується",few:"Історія накопичується з першого запуску збирача. Поки мало точок.",noData:"Для регіону «{r}» поки немає даних. З'являться після першого запуску збирача.",profT:"Ваш профіль Steam",profD:"Вставте посилання на профіль або SteamID: покажемо вішліст зі знижками й підберемо ігри за вашою бібліотекою.",profPh:"steamcommunity.com/id/... або SteamID",profBtn:"Показати",loading:"Завантаження...",pPriv:"Профіль або список ігор закритий. У Steam: Профіль, Налаштування приватності, «Відомості про ігри» → Відкриті.",pNF:"Профіль не знайдено. Перевірте посилання.",pNW:"Добір за профілем не налаштовано: потрібен серверний модуль (див. README).",pErr:"Не вдалося завантажити профіль. Спробуйте пізніше.",vAll:"Усі знижки",vWish:"Мій вішліст",vRec:"Підібрано для вас",match:"Збіг {n}%",info:"Впізнали {a} з {b} ваших ігор. Найбільше ви граєте в: {g}.",wInfo:"У вішлісті ігор: {n}, зі знижкою: {d}.",tg:"Сповіщення про вішліст у Telegram",tgOff:"Telegram-бот не налаштований",noRes:"Нічого не знайдено. Спробуйте інший фільтр.",vFew:"Поки замало даних для поради: історія цін накопичується з першого запуску. Загляньте за пару тижнів.",young:"(даних поки небагато, порада приблизна)",vBest:"Беріть зараз: знижка −{c}% найкраща за весь час спостережень.",vAlways:"Чекати немає сенсу: гра майже завжди продається приблизно зі знижкою −{c}%, а помітно глибше не буває.",vWait:"Краще зачекати: бувало до −{b}%.",vOk:"Хороша знижка: близька до найкращої з колишніх, можна брати.",vNone:"За час спостережень знижок на цю гру не було. Якщо вона потрібна, беріть.",vWaitNo:"Зараз без знижки, але бувало до −{b}%. Краще зачекати.",vSmall:"Знижки в цієї гри невеликі (до −{b}%), чекати особливого сенсу немає.",vSale:"Найближчий великий розпродаж: {n}, через {k} дн.",sWin:"Зимовий розпродаж",sSpr:"Весняний розпродаж",sSum:"Літній розпродаж",sAut:"Осінній розпродаж",bestSeen:"Найкраща знижка за час спостережень",actT:"Активність гравців за місяцями",actNote:"Це кількість відгуків за місяць, а не продажі: Steam не публікує точні продажі, але відгуки зростають разом із кількістю покупців. Пік: {m}, відгуків: {n}.",owners:"Власників (оцінка SteamSpy)",mln:"млн",ths:"тис.",dev:"Розробник",rel:"Вихід",noDesc:"Опис зʼявиться після наступного оновлення даних.",more:"Показати ще",upd:"Оновлено: {d}",r_ua:"Україна",r_us:"США",r_kz:"Казахстан",r_ru:"Росія",rev:"відгуків"},
+en:{demo:"Demo data.",title:"The best Steam games at the best price",sub:"Deals by region, updated daily.",region:"REGION",genre:"GENRE",price:"DISCOUNT AND PRICE",search:"Search games",found:"Games found: {n}",sPop:"Most popular",sDisc:"Biggest discount first",sCheap:"Cheapest first",sName:"By name",sRate:"By reviews",sMatch:"Best match for you",all:"All",story:"Story-rich",coop:"Co-op",shooter:"Shooters",openworld:"Open world",horror:"Horror",indie:"Indie",racing:"Racing",strategy:"Strategy",allP:"All prices",d50:"−50%",d75:"−75%",upTo:"Up to {v}",low:"All-time low",free:"Free",close:"Close",now:"Now",reg:"Regular price",min:"Lowest seen so far",steam:"Open on Steam",hGood:"Good price: at the lowest level",hWait:"Could wait: has been as low as −{n}%",hNorm:"Typical discount for this game",hFew:"Not enough data: price history is still building",few:"History builds up from the first collector run. Few points so far.",noData:"No data for “{r}” yet. It will appear after the first collector run.",profT:"Your Steam profile",profD:"Paste a profile link or SteamID: we'll show your wishlist deals and pick games based on your library.",profPh:"steamcommunity.com/id/... or SteamID",profBtn:"Show",loading:"Loading...",pPriv:"Profile or game list is private. In Steam: Profile, Privacy Settings, “Game details” → Public.",pNF:"Profile not found. Check the link.",pNW:"Profile features aren't set up: a server module is required (see README).",pErr:"Couldn't load the profile. Try again later.",vAll:"All deals",vWish:"My wishlist",vRec:"Picked for you",match:"Match {n}%",info:"Recognized {a} of your {b} games. You play most: {g}.",wInfo:"Wishlist games: {n}, on sale: {d}.",tg:"Wishlist alerts in Telegram",tgOff:"Telegram bot is not set up",noRes:"Nothing found. Try another filter.",vFew:"Not enough data for advice yet: price history builds up from the first run. Check back in a couple of weeks.",young:"(still little data, so the advice is rough)",vBest:"Buy now: −{c}% is the best discount seen so far.",vAlways:"No point waiting: this game is almost always on sale at about −{c}% and rarely goes much deeper.",vWait:"Better to wait: it has been as low as −{b}%.",vOk:"Good discount: close to the best seen, fine to buy.",vNone:"No discounts on this game so far. If you want it, just buy it.",vWaitNo:"Not on sale now, but it has been as low as −{b}%. Better to wait.",vSmall:"This game's discounts are small (up to −{b}%), so waiting isn't worth much.",vSale:"Next big sale: {n}, in {k} days.",sWin:"Winter Sale",sSpr:"Spring Sale",sSum:"Summer Sale",sAut:"Autumn Sale",bestSeen:"Best discount seen so far",actT:"Player activity by month",actNote:"This is reviews per month, not sales: Steam doesn't publish exact sales, but reviews grow with the number of buyers. Peak: {m}, reviews: {n}.",owners:"Owners (SteamSpy estimate)",mln:"M",ths:"K",dev:"Developer",rel:"Released",noDesc:"A description will appear after the next data update.",more:"Show more",upd:"Updated: {d}",r_ua:"Ukraine",r_us:"USA",r_kz:"Kazakhstan",r_ru:"Russia",rev:"reviews"}};
 const REG={ua:{cur:"UAH",t:[100,300,500,1000]},us:{cur:"USD",t:[5,10,20,30]},kz:{cur:"KZT",t:[2000,5000,10000,20000]},ru:{cur:"RUB",t:[200,500,1000,2000]}};
 const LOC={ru:"ru-RU",uk:"uk-UA",en:"en-US"},GK=["all","story","coop","shooter","openworld","horror","indie","racing","strategy"];
 let lang=localStorage.getItem("lang")||"ru",R=(location.hash.slice(1) in REG)?location.hash.slice(1):"ua",CUR=REG[R].cur;
 let LIM=60,lastK="",games=[],gmap={},prices={},hist={},rev={},G="all",P="all",V="all",wish=[],owned=new Set(),W={},MS=1,lastQ="",PROF=false,pInfo="";
 const T=(k,v={})=>(L[lang][k]??k).replace(/\{(\w+)\}/g,(_,x)=>v[x]);
-const fmt=n=>new Intl.NumberFormat(LOC[lang],{style:"currency",currency:CUR,maximumFractionDigits:CUR==="USD"?2:0}).format(n);
+const fmt=n=>{try{return new Intl.NumberFormat(LOC[lang],{style:"currency",currency:CUR,maximumFractionDigits:CUR==="USD"?2:0}).format(n)}catch(e){return Math.round(n).toLocaleString(LOC[lang])+" "+CUR}};  // запасной вариант, если код валюты неожиданный
 const img=id=>`https://cdn.akamai.steamstatic.com/steam/apps/${id}/header.jpg`;
 const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const kf=n=>n>=1000?Math.round(n/1000)+"k":n;
 const PR=()=>[["all",T("allP"),()=>true],["d50",T("d50"),x=>x.discount>=50],["d75",T("d75"),x=>x.discount>=75],...REG[R].t.map(v=>["p"+v,T("upTo",{v:fmt(v)}),x=>x.final<=v]),["low",T("low"),x=>x.low],["free",T("free"),x=>x.final===0]];
 const sc=g=>g.tags.reduce((a,t)=>a+(W[t]||0),0);
+function ownMid(o){const p=(o||"").split("..").map(x=>parseInt(x.replace(/\D/g,""),10));return p.length===2&&p[1]>0?(p[0]+p[1])/2:0}
+const pop=g=>g.rev?.total||ownMid(g.o)||0;
 const rank=g=>g.m*.6+g.discount/100*.25+((g.rev?.pct||70)-70)/200;
 function list(){
  if(V==="wish")return wish;
@@ -77,7 +80,9 @@ function applyLang(){
  document.documentElement.lang=lang;lang_.value=lang;
  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T(e.dataset.i));
  document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=T(e.dataset.ph));
- sort.innerHTML=[["disc","sDisc"],["cheap","sCheap"],["rate","sRate"],["name","sName"],...(PROF?[["match","sMatch"]]:[])].map(([k,t])=>`<option value="${k}">${T(t)}</option>`).join("");
+const curSort=sort.value,SK=[["pop","sPop"],["disc","sDisc"],["cheap","sCheap"],["rate","sRate"],["name","sName"],...(PROF?[["match","sMatch"]]:[])];
+ sort.innerHTML=SK.map(([k,t])=>`<option value="${k}">${T(t)}</option>`).join("");
+ if(SK.some(x=>x[0]===curSort))sort.value=curSort;
  regions.innerHTML=Object.keys(REG).map(k=>`<button class="chip ${R===k?"on":""}" data-r="${k}">${T("r_"+k)}</button>`).join("");
  if(V==="rec")sort.value="match";
 }
@@ -94,7 +99,7 @@ function render(){
  const f=(PR().find(p=>p[0]===P)||PR()[0])[2],s=q.value.toLowerCase().trim();
  let r=list().filter(g=>(G==="all"||g.tags.includes(G))&&f(g)&&g.name.toLowerCase().includes(s));
  const o=sort.value;
- r.sort((a,b)=>o==="disc"?b.discount-a.discount:o==="cheap"?a.final-b.final:o==="rate"?(b.rev?.pct||0)-(a.rev?.pct||0):o==="match"?rank(b)-rank(a):a.name.localeCompare(b.name));
+ r.sort((a,b)=>o==="pop"?((b.discount>0)-(a.discount>0))||pop(b)-pop(a):o==="disc"?b.discount-a.discount:o==="cheap"?a.final-b.final:o==="rate"?(b.rev?.pct||0)-(a.rev?.pct||0):o==="match"?rank(b)-rank(a):a.name.localeCompare(b.name));
  cnt.textContent=T("found",{n:r.length});
  const k=[G,P,V,R,q.value,sort.value].join("|");if(k!==lastK){LIM=60;lastK=k}
  const total=r.length;r=r.slice(0,LIM);
@@ -110,24 +115,65 @@ function chart(h){
  let d=`M${x(0)} ${y(h[0][1])}`;for(let i=1;i<h.length;i++)d+=` H${x(i)} V${y(h[i][1])}`;
  return `<svg viewBox="0 0 ${W_} ${H}" style="width:100%" role="img" aria-label="price history"><path d="${d}" fill="none" stroke="#7be0a4" stroke-width="3"/><line x1="${pad}" x2="${W_-10}" y1="${y(min)}" y2="${y(min)}" stroke="#f2b84b" stroke-dasharray="6 6"/><text x="${pad+4}" y="${y(min)-6}" fill="#f2b84b" font-size="12">${fmt(min)}</text><text x="${pad}" y="${H-8}" fill="#9aa7b5" font-size="12">${h[0][0]}</text><text x="${W_-10}" y="${H-8}" fill="#9aa7b5" font-size="12" text-anchor="end">${h[h.length-1][0]}</text></svg>`;
 }
-function hint(g,h){
- if(h.length<3)return ["",T("hFew")];
- const mx=Math.max(g.initial,...h.map(p=>p[1])),mn=Math.min(...h.map(p=>p[1])),best=Math.round((1-mn/mx)*100);
- if(g.final<=mn*1.03)return ["good",T("hGood")];
- if(best-g.discount>=15)return ["wait",T("hWait",{n:best})];
- return ["",T("hNorm")];
+const SALES=[["2026-12-17","sWin"],["2027-03-18","sSpr"],["2027-06-24","sSum"],["2027-10-01","sAut"]]; // крупные распродажи Steam, обновляйте даты раз в год
+function nextSale(){const now=Date.now();for(const[d,k]of SALES){const t=Date.parse(d);if(t>now){const days=Math.ceil((t-now)/864e5);return days<=75?{n:T(k),k:days}:null}}return null}
+const DET={};let ACT=null;
+const det=l=>DET[l]??=fetch(`data/details-${l}.json`).then(r=>r.ok?r.json():{}).catch(()=>({}));
+const act=()=>ACT??=fetch("data/activity.json").then(r=>r.ok?r.json():{}).catch(()=>({}));
+const unit=n=>n>=1e6?(+(n/1e6).toFixed(1))+" "+T("mln"):n>=1e3?Math.round(n/1e3)+" "+T("ths"):String(n);
+function own(o){if(!o)return"";const p=o.split("..").map(s=>parseInt(s.replace(/\D/g,""),10));return p.length===2&&p[1]>0?unit(p[0])+" – "+unit(p[1]):""}
+function analyze(g,h){
+ const day=864e5,pts=h.map(p=>[Date.parse(p[0]),p[1]]),end=Date.now();
+ if(!pts.length||(end-pts[0][0])/day<14)return null;
+ const reg=Math.max(g.initial,...pts.map(p=>p[1]));if(!reg)return null;
+ const dsc=v=>Math.round((1-v/reg)*100);
+ let tot=0,atl=0,best=0,eps=0,prev=0;
+ pts.forEach((p,i)=>{const dur=((pts[i+1]?pts[i+1][0]:end)-p[0])/day,d=dsc(p[1]);tot+=dur;best=Math.max(best,d);if(g.discount>0&&d>=g.discount-3)atl+=dur;if(d>=10&&prev<10)eps++;prev=d});
+ return{span:(end-pts[0][0])/day,best,eps,share:tot?atl/tot:0};
 }
-function open_(id){
+function verdict(g,a){
+ if(!a)return["",T("vFew")];
+ const c=g.discount,y=a.span<45?" "+T("young"):"";let r;
+ if(c>0&&a.share>=.6&&a.best-c<=10)r=["good",T("vAlways",{c})];
+ else if(c>0&&c>=a.best-3)r=["good",T("vBest",{c})];
+ else if(c>0&&a.best-c>=20)r=["wait",T("vWait",{b:a.best})];
+ else if(c>0)r=["good",T("vOk")];
+ else if(!a.eps)r=["",T("vNone")];
+ else if(a.best>=25)r=["wait",T("vWaitNo",{b:a.best})];
+ else r=["",T("vSmall",{b:a.best})];
+ if(r[0]==="wait"){const s=nextSale();if(s)r[1]+=" "+T("vSale",s)}
+ r[1]+=y;return r;
+}
+function actChart(m){
+ const a=(m||[]).slice(-24);if(a.length<3)return"";
+ const W_=700,H=190,pad=10,mx=Math.max(...a.map(x=>x[1]),1),bw=(W_-pad*2)/a.length;
+ const bars=a.map((x,i)=>{const h=Math.max(1,(H-50)*x[1]/mx);return `<rect x="${pad+i*bw+2}" y="${H-28-h}" width="${bw-4}" height="${h}" fill="#7be0a4" rx="2"><title>${x[0]}: ${x[1].toLocaleString(LOC[lang])}</title></rect>`}).join("");
+ const pk=a.reduce((p,c)=>c[1]>p[1]?c:p);
+ return `<div class="lbl" style="margin:18px 0 6px">${T("actT")}</div><svg viewBox="0 0 ${W_} ${H}" style="width:100%" role="img" aria-label="${T("actT")}">${bars}<text x="${pad}" y="${H-8}" fill="#9aa7b5" font-size="12">${a[0][0]}</text><text x="${W_-pad}" y="${H-8}" fill="#9aa7b5" font-size="12" text-anchor="end">${a[a.length-1][0]}</text></svg><p class="sub" style="font-size:13px">${T("actNote",{m:pk[0],n:pk[1].toLocaleString(LOC[lang])})}</p>`;
+}
+async function open_(id){
  const g=list().find(x=>x.id==id);if(!g)return;
- const h=hist[id]||[],vals=h.map(p=>p[1]),min=vals.length?Math.min(...vals):g.final,md=h.find(p=>p[1]===min),[hc,ht]=hint(g,h);
+ const h=hist[id]||[],vals=h.map(p=>p[1]),min=vals.length?Math.min(...vals):g.final,md=h.find(p=>p[1]===min),a=analyze(g,h),[hc,ht]=verdict(g,a);
+ dlg.dataset.id=id;
  dlg.innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px"><h2 class="d" style="margin:0;font-size:22px">${E(g.name)}</h2><button class="chip" onclick="dlg.close()">${T("close")}</button></div>
  <img src="${img(id)}" alt="" style="width:100%;border-radius:12px;margin:16px 0;aspect-ratio:460/215;object-fit:cover">
- <div class="hint ${hc}">${ht}</div>${chart(h)}
+ <div id="ex1"></div><div class="hint ${hc}">${E(ht)}</div>${chart(h)}
  <div class="kv"><span>${T("now")}</span><b>${fmt(g.final)}</b></div><div class="kv"><span>${T("reg")}</span><b>${fmt(g.initial)}</b></div>
  <div class="kv"><span>${T("min")}</span><b>${fmt(min)}${md?" · "+md[0]:""}</b></div>
+ ${a?`<div class="kv"><span>${T("bestSeen")}</span><b>−${a.best}%</b></div>`:""}
  ${g.rev?`<div class="kv"><span>Steam</span><b>${g.rev.pct}% · ${g.rev.total.toLocaleString(LOC[lang])} ${T("rev")}</b></div>`:""}
+ <div id="ex2"></div>
  <p style="margin-bottom:0"><a class="btn" href="https://store.steampowered.com/app/${id}/?cc=${R}" target="_blank" rel="noopener">${T("steam")}</a></p>`;
  dlg.showModal();
+ const [D,A]=await Promise.all([det(lang),act()]);
+ if(!dlg.open||dlg.dataset.id!=id)return;
+ let x=D[id];if(!x?.d&&lang!=="en")x=(await det("en"))[id];
+ if(!dlg.open||dlg.dataset.id!=id)return;
+ const gen=x?.g?.length?x.g.join(", "):(g.tags||[]).map(t=>T(t)).join(", ");
+ const meta=[gen,x?.dev?.length?T("dev")+": "+x.dev.join(", "):"",x?.rel?T("rel")+": "+x.rel:""].filter(Boolean).map(E).join(" · ");
+ dlg.querySelector("#ex1").innerHTML=(meta?`<p class="mi">${meta}</p>`:"")+(x?.d?`<p class="dsc2">${E(x.d)}</p>`:`<p class="mi">${T("noDesc")}</p>`);
+ const o=own(g.o);
+ dlg.querySelector("#ex2").innerHTML=(o?`<div class="kv"><span>${T("owners")}</span><b>${o}</b></div>`:"")+actChart(A[id]?.m);
 }
 async function getProfile(q,cc){
  if(!CONFIG.WORKER)throw "noworker";
@@ -162,7 +208,7 @@ function load(){
 regions.onclick=e=>{const b=e.target.closest("[data-r]");if(b){R=b.dataset.r;G="all";P="all";location.hash=R;load()}};
 genres.onclick=e=>{const b=e.target.closest("[data-g]");if(b){G=b.dataset.g;render()}};
 document.getElementById("prices").onclick=e=>{const b=e.target.closest("[data-p]");if(b){P=b.dataset.p;render()}};
-views.onclick=e=>{const b=e.target.closest("[data-v]");if(b){V=b.dataset.v;G="all";P="all";sort.value=V==="rec"?"match":"disc";render()}};
+views.onclick=e=>{const b=e.target.closest("[data-v]");if(b){V=b.dataset.v;G="all";P="all";sort.value=V==="rec"?"match":V==="wish"?"disc":"pop";render()}};
 grid.onclick=e=>{const c=e.target.closest("[data-id]");if(c)open_(c.dataset.id)};
 pb.onclick=()=>pq.value.trim()&&loadProfile(pq.value.trim());
 pq.onkeydown=e=>{if(e.key==="Enter")pb.click()};
