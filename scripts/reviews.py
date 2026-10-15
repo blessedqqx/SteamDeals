@@ -33,25 +33,29 @@ def reviews():  # рейтинг отзывов Steam, обновление ра
 def details():  # описания: до 100 игр за запуск (по 3 языка)
     L = {"ru": "russian", "uk": "ukrainian", "en": "english"}
     data = {l: load(f"data/details-{l}.json", {}) for l in L}
-    todo = [g["id"] for g in popular() if any(str(g["id"]) not in data[l] for l in L)][:100]
+    shots = load("data/shots.json", {})   # скриншоты (одинаковые для всех языков)
+    todo = [g["id"] for g in popular() if any(str(g["id"]) not in data[l] for l in L) or str(g["id"]) not in shots][:100]
     stop = False
     try:
         for i in todo:
             for l, name in L.items():
-                if str(i) in data[l]: continue
+                if str(i) in data[l] and not (l == "en" and str(i) not in shots): continue
                 try:
-                    r = jget(f"https://store.steampowered.com/api/appdetails?appids={i}&l={name}&cc=us&filters=basic,genres,release_date")[str(i)]
+                    r = jget(f"https://store.steampowered.com/api/appdetails?appids={i}&l={name}&cc=us&filters=basic,genres,release_date,screenshots")[str(i)]
                     d = r.get("data") if r.get("success") else None
                     data[l][str(i)] = {} if not d else {"d": clean(d.get("short_description")), "dev": (d.get("developers") or [])[:2],
                         "rel": (d.get("release_date") or {}).get("date", ""), "g": [x["description"] for x in d.get("genres", [])][:4]}
+                    if l == "en": shots[str(i)] = [x["path_full"].split("?")[0] for x in ((d or {}).get("screenshots") or []) if x.get("path_full")][:6]
                 except urllib.error.HTTPError as e:
                     if e.code in (429, 403): stop = True; break   # Steam просит притормозить: продолжим завтра
                     data[l][str(i)] = {}
+                    if l == "en": shots[str(i)] = []
                 except Exception as e: print(i, l, "описание: ошибка", e)
                 time.sleep(1.6)
             if stop: break
     finally:
         for l in L: save(f"data/details-{l}.json", data[l])
+        save("data/shots.json", shots)
     print("описания:", len(data["en"]), "игр, обработано сейчас:", len(todo))
 
 def activity():  # число отзывов по месяцам (Steam не отдаёт продажи; отзывы растут вместе с числом покупателей)
@@ -73,7 +77,12 @@ def activity():  # число отзывов по месяцам (Steam не о�
         time.sleep(1)
     save("data/activity.json", act); print("активность:", len(act))
 
-for f in (reviews, details, activity):
+def pages():  # статические страницы игр и sitemap для поисковиков
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import build_pages; build_pages.main()
+
+for f in (reviews, details, activity, pages):
     try: f()
     except Exception as e: print(f.__name__, "ОШИБКА:", e)
 
