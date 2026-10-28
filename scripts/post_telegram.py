@@ -1,40 +1,54 @@
 """Публикует в Telegram-канал выгодные скидки на хорошие игры: один пост на игру, цены по всем регионам.
 Нужны секреты TG_TOKEN и TG_CHANNEL. Уже опубликованное хранится в data/posted.json, поэтому повторов нет.
-Настройки (можно менять): MIN_DISC, MIN_PCT, MIN_REV, MAX_POSTS."""
+Один запуск = один пост. Запускается отдельным расписанием (.github/workflows/post.yml) несколько раз в день,
+поэтому игры выходят в канал в течение дня, а не пачкой. Настройки (можно менять): MIN_DISC, MIN_PCT, MIN_REV, MAX_POSTS, MAX_PER_DAY."""
 import json, os, sys, html, datetime, urllib.request, urllib.error
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_pages import site_url, money, load
 
 tok, chan = os.environ.get("TG_TOKEN"), os.environ.get("TG_CHANNEL")
 if not (tok and chan): print("Telegram не настроен (нет TG_TOKEN / TG_CHANNEL), пропускаю"); raise SystemExit
+if os.environ.get("GITHUB_WORKFLOW") == "update-prices":   # ежедневное обновление данных не публикует, чтобы не было «пачки» постов
+    print("посты выходят по расписанию из запуска post-telegram, здесь пропускаю"); raise SystemExit
 MIN_DISC = 50     # минимальная скидка хотя бы в одном регионе, %
 MIN_PCT = 80      # минимум положительных отзывов, %
 MIN_REV = 5000    # минимум отзывов (чтобы игра была известной)
-MAX_POSTS = 5     # не больше постов за один запуск
+MAX_POSTS = 1     # постов за один запуск
+MAX_PER_DAY = 5   # потолок постов за сутки
 COOLDOWN, JUMP = 14, 15   # не повторять игру 14 дней, если скидка не выросла на 15 п.п.
 REG = [("ua", "🇺🇦", "Украина"), ("us", "🇺🇸", "США"), ("kz", "🇰🇿", "Казахстан"), ("ru", "🇷🇺", "Россия")]
 TAGS = {"story": "#сюжетные", "coop": "#кооператив", "shooter": "#шутеры", "openworld": "#открытый_мир", "horror": "#хоррор", "indie": "#инди", "racing": "#гонки", "strategy": "#стратегии"}
 site = site_url()
 games, rev = load("data/games.json", []), load("data/reviews.json", {})
+det = load("data/details-ru.json", {})   # краткие описания игр
 pr = {cc: load(f"data/{cc}/prices.json", {}) for cc, _, _ in REG}
 posted = load("data/posted.json", {})
 today = datetime.date.today()
 kf = lambda n: f"{round(n / 1000)} тыс." if n >= 1000 else str(n)
 
 def caption(g, per, best, r):
-    L = [f"🔥 <b>{html.escape(g['name'])}</b>", f"Скидка до <b>−{best}%</b>", ""]
-    for cc, flag, name in REG:
-        it = per.get(cc)
-        if not it: continue
-        cur = pr[cc].get("currency") or "USD"
-        if it.get("free"): txt = "бесплатно"
-        elif it["discount"] > 0: txt = f"<b>{money(it['final'], cur)}</b> (−{it['discount']}%, было {money(it['initial'], cur)})"
-        else: txt = money(it["final"], cur)
-        L.append(f"{flag} {name}: {txt}")
-    L += ["", f"⭐ {r['pct']}% положительных отзывов ({kf(r['total'])})"]
-    if any(it.get("low") for it in per.values()): L.append("📉 Исторический минимум цены")
-    L += ["", " ".join(["#скидки", "#steam"] + [TAGS[t] for t in g.get("tags", []) if t in TAGS])]
-    return "\n".join(L)
+    def build(desc):
+        L = [f"🔥 <b>{html.escape(g['name'])}</b>", f"Скидка до <b>−{best}%</b>", ""]
+        if desc: L += [f"<i>{html.escape(desc)}</i>", ""]
+        for cc, flag, name in REG:
+            it = per.get(cc)
+            if not it: continue
+            cur = pr[cc].get("currency") or "USD"
+            if it.get("free"): txt = "бесплатно"
+            elif it["discount"] > 0: txt = f"<b>{money(it['final'], cur)}</b> (−{it['discount']}%, было {money(it['initial'], cur)})"
+            else: txt = money(it["final"], cur)
+            L.append(f"{flag} {name}: {txt}")
+        L += ["", f"⭐ {r['pct']}% положительных отзывов ({kf(r['total'])})"]
+        if any(it.get("low") for it in per.values()): L.append("📉 Исторический минимум цены")
+        L += ["", " ".join(["#скидки", "#steam"] + [TAGS[t] for t in g.get("tags", []) if t in TAGS])]
+        return "\n".join(L)
+    d = ((det.get(str(g["id"])) or {}).get("d") or "").strip()
+    if len(d) > 230: d = d[:230].rsplit(" ", 1)[0].rstrip(",.;:—- ") + "…"
+    text = build(d)
+    while len(text) > 1000 and d:          # подпись в Telegram не длиннее 1024 знаков
+        d = d[:max(0, len(d) - 40)].rsplit(" ", 1)[0] if len(d) > 60 else ""
+        text = build(d)
+    return text
 
 def api(method, payload):
     req = urllib.request.Request(f"https://api.telegram.org/bot{tok}/{method}", json.dumps(payload).encode(), {"Content-Type": "application/json"})
@@ -61,10 +75,12 @@ for g in games:
     cands.append((r["total"], i, g, per, best, r))
 cands.sort(key=lambda c: -c[0])
 sent = 0
-for _, i, g, per, best, r in cands[:MAX_POSTS]:
+done_today = sum(1 for v in posted.values() if v.get("d") == today.isoformat())
+budget = max(0, min(MAX_POSTS, MAX_PER_DAY - done_today))
+for _, i, g, per, best, r in cands[:budget]:
     try:
         send(i, caption(g, per, best, r))
         posted[i] = {"d": today.isoformat(), "disc": best}; sent += 1
         json.dump(posted, open("data/posted.json", "w", encoding="utf-8"), ensure_ascii=False)
     except Exception as e: print("не отправлено:", g["name"], e)
-print(f"кандидатов: {len(cands)}, опубликовано: {sent}")
+print(f"кандидатов: {len(cands)}, опубликовано: {sent} (сегодня уже: {done_today})")

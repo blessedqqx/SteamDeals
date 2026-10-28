@@ -54,6 +54,7 @@ def main():
 <title>{html.escape(name)}: цена и скидки в Steam (Украина, США, Казахстан, Россия)</title>
 <meta name="description" content="{html.escape(meta[:300], quote=True)}">
 <link rel="canonical" href="{site}data/g/{i}.html">
+<link rel="icon" type="image/png" href="{site}favicon.png">
 <meta property="og:type" content="website"><meta property="og:title" content="{html.escape(name, quote=True)}: цена и скидки в Steam">
 <meta property="og:image" content="https://cdn.akamai.steamstatic.com/steam/apps/{i}/header.jpg"><meta property="og:url" content="{site}data/g/{i}.html">
 <style>{CSS}</style>
