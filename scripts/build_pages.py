@@ -1,6 +1,6 @@
 """Статические страницы игр (для поисковиков) и sitemap.xml.
 Результат: data/g/<id>.html и data/sitemap.xml. Запускается из reviews.py."""
-import json, os, html, datetime
+import json, os, re, html, datetime
 REG = [("ua", "Украина", "UAH"), ("us", "США", "USD"), ("kz", "Казахстан", "KZT"), ("ru", "Россия", "RUB")]
 SYM = {"UAH": "₴", "USD": "$", "KZT": "₸", "RUB": "₽"}
 FALLBACK_SITE = "https://blessedqqx.github.io/SteamDeals/"
@@ -25,12 +25,19 @@ CSS = ("body{margin:0;background:#11161d;color:#e8edf3;font-family:Arial,sans-se
        "a{color:#7be0a4}img{max-width:100%;height:auto;border-radius:12px}table{width:100%;border-collapse:collapse;margin:16px 0}"
        "td,th{padding:10px;border-bottom:1px solid #263040;text-align:left}.btn{display:inline-block;background:#7be0a4;color:#0b1a12;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none}")
 
+def analytics():
+    """Счётчик Cloudflare: токен берётся из config.js (CF_ANALYTICS), если он там указан."""
+    try: tok = re.search(r'CF_ANALYTICS\s*:\s*"([^"]+)"', open("config.js", encoding="utf-8").read()).group(1).strip()
+    except Exception: return ""
+    if not re.fullmatch(r"[A-Za-z0-9_-]{10,}", tok): return ""
+    return '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "%s"}\'></script>' % tok
+
 def main():
     games, rev = load("data/games.json", []), load("data/reviews.json", {})
     det, pr = load("data/details-ru.json", {}), {cc: load(f"data/{cc}/prices.json", {}) for cc, _, _ in REG}
     site, today = site_url(), datetime.date.today().isoformat()
     os.makedirs("data/g", exist_ok=True)
-    urls = []
+    urls, beacon = [site], analytics()    # в карту сайта входит и главная страница
     for g in games:
         i = str(g["id"]); name = g["name"]; rows, offers, free = [], [], False
         for cc, rname, cur0 in REG:
@@ -68,7 +75,7 @@ def main():
 <table><tr><th>Регион</th><th>Цена</th><th>Скидка</th></tr>{"".join(rows)}</table>
 <p><a class="btn" href="https://store.steampowered.com/app/{i}/">Открыть в Steam</a></p>
 <p>Обновлено: {today}. История цены и подсказка, стоит ли покупать сейчас, есть <a href="{site}">на главной странице</a>.</p>
-</main></body></html>'''
+</main>{beacon}</body></html>'''
         open(f"data/g/{i}.html", "w", encoding="utf-8").write(page)
         urls.append(f"{site}data/g/{i}.html")
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(

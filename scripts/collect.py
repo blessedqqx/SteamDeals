@@ -39,7 +39,7 @@ def run(cc):
         else:
             h = hist.setdefault(appid, []); prev_min = min([p for _, p in h], default=None)
             it["low"] = prev_min is not None and it["final"] <= prev_min and it["final"] < it["initial"]
-            if not h or h[-1][1] != it["final"]: h.append([today, it["final"]])
+            if it["final"] > 0 and (not h or h[-1][1] != it["final"]): h.append([today, it["final"]])   # раздачи (цена 0) в историю не пишем, иначе «минимум» навсегда станет нулевым
         items[appid] = it; return True
 
     for i in range(0, len(games), BATCH):
