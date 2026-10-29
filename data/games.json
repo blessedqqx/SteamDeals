@@ -9049,5 +9049,242 @@
 "shooter"
 ],
 "o": "10,000,000 .. 20,000,000"
+},
+{
+"id": 1938090,
+"name": "Call of Duty: Modern Warfare II",
+"tags": [
+"coop",
+"shooter",
+"story"
+],
+"o": "50,000,000 .. 100,000,000"
+},
+{
+"id": 221100,
+"name": "DayZ",
+"tags": [
+"coop",
+"horror",
+"indie",
+"openworld",
+"shooter"
+],
+"o": "10,000,000 .. 20,000,000"
+},
+{
+"id": 1063730,
+"name": "New World: Aeternum",
+"tags": [
+"coop",
+"openworld"
+],
+"o": "50,000,000 .. 100,000,000"
+},
+{
+"id": 1238810,
+"name": "Battlefield V",
+"tags": [
+"openworld",
+"shooter"
+],
+"o": "10,000,000 .. 20,000,000"
+},
+{
+"id": 594650,
+"name": "Hunt: Showdown 1896",
+"tags": [
+"coop",
+"horror",
+"openworld",
+"shooter"
+],
+"o": "10,000,000 .. 20,000,000"
+},
+{
+"id": 433850,
+"name": "Z1 Battle Royale",
+"tags": [
+"coop",
+"horror",
+"openworld",
+"shooter"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 1240440,
+"name": "Halo Infinite",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"story"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 1222670,
+"name": "The Sims 4",
+"tags": [],
+"o": "10,000,000 .. 20,000,000",
+"f": 1,
+"nt": 1
+},
+{
+"id": 2694490,
+"name": "Path of Exile 2",
+"tags": [
+"coop",
+"horror"
+],
+"o": "20,000,000 .. 50,000,000"
+},
+{
+"id": 444200,
+"name": "World of Tanks Blitz",
+"tags": [
+"coop",
+"horror",
+"openworld",
+"shooter",
+"strategy"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 552990,
+"name": "World of Warships",
+"tags": [
+"coop",
+"shooter",
+"strategy"
+],
+"o": "20,000,000 .. 50,000,000",
+"f": 1
+},
+{
+"id": 227940,
+"name": "Heroes & Generals",
+"tags": [
+"coop",
+"indie",
+"openworld",
+"shooter",
+"strategy"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 386360,
+"name": "SMITE",
+"tags": [
+"coop",
+"openworld",
+"strategy"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 899770,
+"name": "Last Epoch",
+"tags": [
+"coop",
+"indie"
+],
+"o": "20,000,000 .. 50,000,000"
+},
+{
+"id": 755790,
+"name": "Ring of Elysium",
+"tags": [
+"coop",
+"openworld",
+"shooter"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 1665460,
+"name": "eFootball",
+"tags": [
+"coop"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 291480,
+"name": "Warface: Clutch",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"strategy"
+],
+"o": "20,000,000 .. 50,000,000",
+"f": 1
+},
+{
+"id": 550650,
+"name": "Black Squad",
+"tags": [
+"coop",
+"openworld",
+"shooter",
+"strategy"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 532210,
+"name": "Life is Strange 2",
+"tags": [
+"indie",
+"story"
+],
+"o": "10,000,000 .. 20,000,000"
+},
+{
+"id": 4115450,
+"name": "Phantom Blade Zero",
+"tags": [],
+"nt": 1
+},
+{
+"id": 4435490,
+"name": "Call of Duty: Modern Warfare 4",
+"tags": [],
+"nt": 1
+},
+{
+"id": 4165890,
+"name": "Steam Frame",
+"tags": [],
+"nt": 1
+},
+{
+"id": 5001840,
+"name": "Crimson Desert Enhanced: Charting the Unknown",
+"tags": [],
+"nt": 1
+},
+{
+"id": 91213,
+"name": "Probably Stolen x Potion Craft",
+"tags": []
+},
+{
+"id": 3259780,
+"name": "FINAL FANTASY RESONANCE",
+"tags": [],
+"nt": 1
 }
 ]
