@@ -61,6 +61,29 @@ const tap=(h,sel,v)=>E[h].onclick({target:{closest:s=>s===sel?{dataset:{[sel.sli
  E.dlg.onclick({target:{closest:s=>s==="[data-fav]"?(E.dlg._fb=E.dlg._fb||{dataset:{fav:String(id)},textContent:""}):null}});
  ok("кнопка в окне игры добавляет в избранное",run("fav.has("+id+")")===true&&E.dlg._fb.textContent.startsWith("♥"));
  E.dlg.close();
+ // светлая/тёмная тема
+ ok("по умолчанию тёмная тема, на кнопке ☀",run("theme")==="dark"&&E.thm.textContent==="☀",E.thm.textContent);
+ E.thm.onclick();ok("кнопка переключает на светлую (☾)",run("theme")==="light"&&E.thm.textContent==="☾");
+ E.thm.onclick();ok("и обратно на тёмную",run("theme")==="dark"&&E.thm.textContent==="☀");
+ ok("светлая тема описана в стилях, салатовый акцент сохранён",html.includes(':root[data-theme="light"]')&&html.includes(".chip.on{background:#7be0a4")&&html.includes(".btn{background:#7be0a4")&&html.includes('id="th0"'));
+ ok("графики используют цвета темы (переменные)",!/(fill|stroke)=\\?"#[0-9a-fA-F]{6}/.test(js)&&js.includes("var(--gr)"));
+ // дата окончания скидки в окне игры
+ const openG=async id=>{await E.grid.onclick({target:{closest:s=>s==="[data-fav]"?null:{dataset:{id:String(id)}}}});await wait(80);return E.dlg.innerHTML};
+ run("prices[1091500].discount=50;prices[1091500].final=500;ends[1091500]=Math.floor(Date.now()/1000)+3*86400+3600;");
+ let dd=await openG(1091500);
+ ok("в окне игры со скидкой есть дата окончания и «осталось 3 дн.»",dd.includes("Скидка действует до")&&dd.includes("осталось 3 дн."),dd.slice(dd.indexOf("kv")-20,dd.indexOf("kv")+300));
+ run("ends[1091500]=Math.floor(Date.now()/1000)+3600*5;");dd=await openG(1091500);
+ ok("меньше суток: «осталось меньше суток»",dd.includes("осталось меньше суток"));
+ run("ends[1091500]=Math.floor(Date.now()/1000)-60;");dd=await openG(1091500);
+ ok("скидка уже закончилась по данным — строки нет",!dd.includes("Скидка действует до"));
+ run("delete ends[1091500];");dd=await openG(1091500);
+ ok("нет данных о дате — строки нет, окно открывается",!dd.includes("Скидка действует до")&&dd.includes("Cyberpunk 2077"));
+ run("ends[1091500]=Math.floor(Date.now()/1000)+86400*2.5;prices[1091500].discount=0;prices[1091500].final=prices[1091500].initial;");dd=await openG(1091500);
+ ok("игра без скидки — даты окончания нет",!dd.includes("Скидка действует до"));
+ run("prices[1091500].discount=50;prices[1091500].final=500;");
+ E.lang.value="en";E.lang.onchange();dd=await openG(1091500);ok("на английском: «Discount ends» и «days left»",dd.includes("Discount ends")&&/\d+ days left/.test(dd),dd.slice(dd.indexOf("Discount")-5,dd.indexOf("Discount")+200));
+ E.lang.value="uk";E.lang.onchange();dd=await openG(1091500);ok("на украинском: «Знижка діє до»",dd.includes("Знижка діє до")&&dd.includes("залишилось"));
+ E.lang.value="ru";E.lang.onchange();E.dlg.close();
  // на трёх языках без «undefined»
  for(const l of ["uk","en","ru"]){E.lang.value=l;E.lang.onchange();ok("язык "+l+": новые надписи на месте",!E.prices.innerHTML.includes("undefined")&&!E.grid.innerHTML.includes("undefined")&&!E.best.innerHTML.includes("undefined"))}
  ok("избранное сохраняется в localStorage",run("typeof toggleFav")==="function");

@@ -3,7 +3,7 @@
 # Нужны python3 и node. Интернет НЕ нужен: ответы Steam, SteamSpy и Telegram подменяются заглушками.
 set -eo pipefail
 T=$(mktemp -d)
-cp -r index.html config.js scripts "$T"/; mkdir "$T/data"; cp data/games.json "$T/data/"; echo '{}' > "$T/data/reviews.json"
+cp -r index.html config.js scripts "$T"/; mkdir "$T/data"; cp data/games.json "$T/data/"; [ -f data/announce.json ] && cp data/announce.json "$T/data/"; echo '{}' > "$T/data/reviews.json"
 cp tests/* "$T"/; cp worker/index.js "$T/worker.mjs"; cd "$T"
 export GITHUB_REPOSITORY=owner/repo TG_TOKEN=T TG_CHANNEL=@chan
 python3 -c "import json;g=json.load(open('data/games.json',encoding='utf-8'));json.dump([x for x in g if x['id'] not in (1091500,1174180,271590)],open('data/games.json','w',encoding='utf-8'),ensure_ascii=False)"

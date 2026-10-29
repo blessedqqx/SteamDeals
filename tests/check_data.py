@@ -18,6 +18,10 @@ chk("бесплатные помечены f (CS2, Free Hit из SteamSpy)", byi
 for cc in ("ua", "us", "kz", "ru"):
     p = json.load(open(f"data/{cc}/prices.json", encoding="utf-8")); it = p["items"]
     chk(f"{cc}: Cyberpunk найден повторным запросом, бесплатные на месте, Witcher без цены", "1091500" in it and "730" in it and it["730"].get("free") and "292030" not in it)
+import time
+for cc in ("ua", "us", "kz", "ru"):
+    e = json.load(open(f"data/{cc}/ends.json", encoding="utf-8")); pi = json.load(open(f"data/{cc}/prices.json", encoding="utf-8"))["items"]
+    chk(f"{cc}: даты окончания скидок записаны только для скидочных игр и только будущие", len(e) > 0 and all(pi[i]["discount"] > 0 and not pi[i].get("free") and v > time.time() for i, v in e.items()) and "1174180" not in e and "777002" not in e, list(e.items())[:3])
 sh = json.load(open("data/shots.json")); chk("скриншоты: 6 штук без ?t=", len(sh["1091500"]) == 6 and all("?" not in u for u in sh["1091500"]))
 chk("описания на 3 языках", all(os.path.exists(f"data/details-{l}.json") for l in ("ru", "uk", "en")))
 pg = open("data/g/1091500.html", encoding="utf-8").read()
@@ -33,5 +37,10 @@ if log:
     chk("пост: подпись не длиннее 1024", len(c) <= 1024, len(c))
     chk("пост: 4 региона, скидка, отзывы, хештеги", all(x in c for x in ("🇺🇦 Украина", "🇺🇸 США", "🇰🇿 Казахстан", "🇷🇺 Россия", "−50%", "положительных", "#скидки")))
     chk("пост: фото обложки и две кнопки", log[0]["m"] == "sendPhoto" and len(log[0]["reply_markup"]["inline_keyboard"]) == 2)
+if os.path.exists("data/announce.json"):
+    an = json.load(open("data/announce.json", encoding="utf-8"))
+    chk("announce.json: у каждого анонса есть дата, текст и признак подтверждения", all(isinstance(x.get("approved"), bool) and x.get("date") and "{days}" in x.get("text", "") for x in an), an[:1])
+    texts = [l.get("caption") or l.get("text") or "" for l in log]
+    chk("неподтверждённые анонсы в канал не уходили", not any(x["text"][:25] in t for x in an if not x["approved"] for t in texts))
 print("ВСЕ ПРОВЕРКИ ДАННЫХ ПРОЙДЕНЫ" if not bad else f"ПРОВАЛЕНО: {bad}")
 raise SystemExit(1 if bad else 0)

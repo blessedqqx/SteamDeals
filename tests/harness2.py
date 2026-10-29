@@ -20,6 +20,10 @@ def fake(req, timeout=None):
         if q["request"][0] == "top100forever": return R({"777030": big("Popular Meh", 20000, 40000), "777031": big("Tiny Top", 1000, 500)})
         if q["request"][0] in ("top100in2weeks", "top100owned"): return R({"777030": big("Popular Meh", 20000, 40000)})
         return R({"name": "Deal Game", "tags": {"Horror": 100}})
+    if "IStoreBrowseService" in u.path:       # даты окончания скидок
+        ids = [x["appid"] for x in json.loads(q["input_json"][0])["ids"]]
+        past, fut = int(time.time()) - 86400, int(time.time()) + 3 * 86400
+        return R({"response": {"store_items": [{"appid": i, "best_purchase_option": {"active_discounts": [{"discount_end_date": past if i == 1174180 else fut}]}} for i in ids if i != 777002]}})
     if u.path.endswith("featuredcategories"): return R({"specials": {"items": [{"id": 777099, "name": "Free Gift", "discount_percent": 100}]}, "top_sellers": {"items": []}})
     if u.path.endswith("appdetails"):
         ids = q["appids"][0].split(",")

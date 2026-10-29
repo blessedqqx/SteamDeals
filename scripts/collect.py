@@ -64,3 +64,6 @@ def run(cc):
 for cc in REGIONS:
     try: run(cc)
     except Exception as e: print(cc, "ОШИБКА:", e)  # один регион не должен ломать остальные
+try:       # даты окончания скидок (для окна игры на сайте); если Steam не ответит, цены всё равно сохранены
+    import ends; ends.run(list(REGIONS))
+except Exception as e: print("даты окончания скидок: ошибка", e)
