@@ -24,6 +24,7 @@ const tap=(h,sel,v)=>E[h].onclick({target:{closest:s=>s===sel?{dataset:{[sel.sli
  ok("блок «Лучшее сегодня» показан на главной (без фильтров)",E.bestW.hidden===false&&cards2(E.best.innerHTML)>=1&&cards2(E.best.innerHTML)<=6,E.best.innerHTML.length);
  const bs=run("(()=>{const r=list().filter(g=>!g.free&&g.discount>=50&&g.rev&&g.rev.pct>=70);return r.length})()");
  ok("в блоке только скидки от 50%: "+(E.best.innerHTML.match(/class="dsc ">−(\d+)%/g)||[]).join(" "),(E.best.innerHTML.match(/class="dsc ">−(\d+)%/g)||[]).every(m=>+m.match(/\d+/)[0]>=50)&&bs>0);
+ ok("у блока «Лучшее» есть стрелки листания и нет полосы прокрутки",html.includes('id="bl"')&&html.includes('id="br"')&&html.includes("scrollbar-width:none")&&html.includes("::-webkit-scrollbar{display:none}"));
  click("genres","g","coop");ok("с выбранным жанром блок «Лучшее» скрыт",E.bestW.hidden===true);click("genres","g","all");
  ok("после сброса фильтра блок снова виден",E.bestW.hidden===false);
  // популярная игра со смешанными отзывами попадает в блок

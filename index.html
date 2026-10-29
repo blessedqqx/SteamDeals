@@ -31,7 +31,8 @@ h1{font-size:clamp(24px,4vw,38px);margin:32px 0 8px}.sub{color:#9aa7b5;margin:0 
 .card{background:#1a212b;border-radius:16px;overflow:hidden;cursor:pointer;border:0;color:inherit;text-align:left;padding:0;font:inherit}
 .card:hover{outline:2px solid #7be0a4}.card{position:relative}
 .fv{position:absolute;top:8px;right:8px;width:38px;height:38px;border-radius:50%;background:#0b0f14d9;color:#e8edf3;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;cursor:pointer}.fv.on{color:#ff6b81}.fv:hover{outline:2px solid #ff6b81}
-.row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px}.row .card{flex:none;width:260px}
+.row{display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}.row::-webkit-scrollbar{display:none}
+.bw{position:relative}.ar{position:absolute;top:50%;transform:translateY(-50%);left:6px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#0b0f14ee;color:#e8edf3;font-size:30px;line-height:1;padding:0 0 4px;cursor:pointer;box-shadow:0 2px 10px #0009}.ar.r{left:auto;right:6px}.ar:hover{background:#7be0a4;color:#0b0f14}.row .card{flex:none;width:260px}
 .card img{width:100%;aspect-ratio:460/215;object-fit:cover;display:block;background:#263040}
 .cb{padding:16px;display:flex;flex-direction:column;gap:10px}.nm{font-weight:800}
 .pr{display:flex;align-items:center;gap:10px}
@@ -54,7 +55,7 @@ dialog{background:#1a212b;color:#e8edf3;border:0;border-radius:20px;padding:28px
 <div class="hr"><a class="btn" id="tgch" hidden target="_blank" rel="noopener" data-i="tgCh"></a><input id="q" type="search" data-ph="search" aria-label="search"><select id="lang" aria-label="language"><option value="ru">Русский</option><option value="uk">Українська</option><option value="en">English</option></select></div></header>
 <h1 class="d" data-i="title"></h1><p class="sub"><span data-i="sub"></span> <span id="upd"></span></p>
 <div class="lbl" data-i="region"></div><div class="chips" id="regions"></div>
-<div id="bestW" hidden><div class="lbl" data-i="bestT"></div><div class="row" id="best"></div></div>
+<div id="bestW" hidden><div class="lbl" data-i="bestT"></div><div class="bw"><button class="ar" id="bl" aria-label="←" hidden onclick="best.scrollBy({left:-best.clientWidth*.8,behavior:'smooth'})">‹</button><div class="row" id="best"></div><button class="ar r" id="br" aria-label="→" hidden onclick="best.scrollBy({left:best.clientWidth*.8,behavior:'smooth'})">›</button></div></div>
 <div class="box" id="pbox"><h2 class="d" style="margin:0 0 8px;font-size:18px" data-i="profT"></h2><p data-i="profD"></p>
 <div class="pf"><input id="pq" data-ph="profPh" aria-label="profile"><button class="btn" id="pb" data-i="profBtn"></button></div><div id="pst"></div>
 <div id="pinfo" style="margin-top:12px;color:#9aa7b5"></div><div id="tgw" style="margin-top:12px"></div></div>
@@ -121,8 +122,9 @@ function card(g){
 function bestRender(){   // «Лучшее сегодня»: раздачи, затем популярные игры с большой скидкой (у «народных» игр с 50 тыс. отзывов оценка может быть смешанной, от 40%)
  const on=V==="all"&&G==="all"&&P==="all"&&!q.value.trim();let b=[];
  if(on)b=list().filter(g=>!g.free&&g.discount>=50&&(isGift(g)||(g.rev&&(g.rev.pct>=70||(g.rev.total>=50000&&g.rev.pct>=40))))).map(g=>({g,s:(isGift(g)?1e3:0)+g.discount*Math.log10(pop(g)+10)*(g.low?1.15:1)})).sort((a,b)=>b.s-a.s).slice(0,6).map(x=>x.g);
- bestW.hidden=!b.length;best.innerHTML=b.map(card).join("");
+ bestW.hidden=!b.length;best.innerHTML=b.map(card).join("");best.scrollLeft=0;bestArrows();
 }
+function bestArrows(){const m=best.scrollWidth-best.clientWidth;bl.hidden=!(best.scrollLeft>4);br.hidden=!(best.scrollLeft<m-4)}   // стрелки показываем только там, куда ещё можно листать
 function render(){
  chips();
  const f=(PR().find(p=>p[0]===P)||PR()[0])[2],s=qnorm(q.value);
@@ -242,7 +244,7 @@ genres.onclick=e=>{const b=e.target.closest("[data-g]");if(b){G=b.dataset.g;rend
 document.getElementById("prices").onclick=e=>{const b=e.target.closest("[data-p]");if(b){P=b.dataset.p;render()}};
 views.onclick=e=>{const b=e.target.closest("[data-v]");if(b){V=b.dataset.v;G="all";P="all";sort.value=V==="rec"?"match":V==="wish"?"disc":"pop";render()}};
 const gridClick=e=>{const f=e.target.closest("[data-fav]");if(f&&f.dataset.fav){toggleFav(+f.dataset.fav);return}const c=e.target.closest("[data-id]");if(c)open_(c.dataset.id)};
-grid.onclick=best.onclick=gridClick;
+grid.onclick=best.onclick=gridClick;best.onscroll=bestArrows;window.onresize=bestArrows;
 dlg.onclick=e=>{const f=e.target.closest("[data-fav]");if(f&&f.dataset.fav){const n=+f.dataset.fav;toggleFav(n);f.textContent=(fav.has(n)?"♥":"♡")+" "+T("fav")}};
 pb.onclick=()=>pq.value.trim()&&loadProfile(pq.value.trim());
 pq.onkeydown=e=>{if(e.key==="Enter")pb.click()};
