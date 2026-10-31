@@ -9290,11 +9290,24 @@
 {
 "id": 4530370,
 "name": "Football Manager 27",
-"tags": []
+"tags": [],
+"nt": 1
 },
 {
 "id": 4336170,
 "name": "Age of Empires IV: Raiders of the North",
 "tags": []
+},
+{
+"id": 5335510,
+"name": "Moon Sweepers",
+"tags": [],
+"nt": 1
+},
+{
+"id": 4165910,
+"name": "Steam Machine",
+"tags": [],
+"nt": 1
 }
 ]
