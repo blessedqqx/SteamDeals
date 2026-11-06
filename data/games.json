@@ -9336,5 +9336,22 @@
 "name": "Steam Deck",
 "tags": [],
 "nt": 1
+},
+{
+"id": 1211600,
+"name": "ZED ZONE",
+"tags": [
+"openworld"
+]
+},
+{
+"id": 4435640,
+"name": "Uninitialized",
+"tags": []
+},
+{
+"id": 88501,
+"name": "Wing Commander",
+"tags": []
 }
 ]
