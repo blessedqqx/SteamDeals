@@ -9354,5 +9354,15 @@
 "id": 88501,
 "name": "Wing Commander",
 "tags": []
+},
+{
+"id": 2406770,
+"name": "Bodycam",
+"tags": [
+"coop",
+"shooter",
+"openworld",
+"horror"
+]
 }
 ]
