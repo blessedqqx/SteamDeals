@@ -9360,9 +9360,17 @@
 "name": "Bodycam",
 "tags": [
 "coop",
-"shooter",
+"horror",
 "openworld",
-"horror"
-]
+"shooter",
+"strategy"
+],
+"o": "500,000 .. 1,000,000"
+},
+{
+"id": 3629430,
+"name": "DREADMOOR",
+"tags": [],
+"nt": 1
 }
 ]
