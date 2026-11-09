@@ -1,4 +1,4 @@
-import json, runpy, sys, os, time, urllib.request, urllib.parse, io
+import json, runpy, sys, os, time, io, urllib.request, urllib.error, urllib.parse
 time.sleep = lambda *_: None
 sys.path.insert(0, os.path.abspath("scripts"))
 R = lambda o: io.BytesIO(json.dumps(o).encode())
@@ -14,7 +14,10 @@ def fake(req, timeout=None):
     url = req if isinstance(req, str) else req.full_url
     u = urllib.parse.urlparse(url); q = urllib.parse.parse_qs(u.query)
     if "api.telegram.org" in u.netloc:
-        body = json.loads(req.data.decode()); open("tg.log", "a").write(json.dumps({"m": u.path.split("/")[-1], **body}, ensure_ascii=False) + "\n"); return R({"ok": True})
+        body = json.loads(req.data.decode())
+        if u.path.endswith("sendPhoto") and any(x and x in body.get("photo", "") for x in os.environ.get("TG_FAIL", "").split(",")):
+            raise urllib.error.HTTPError(req.full_url, 400, "Bad Request", {}, io.BytesIO(b"wrong file"))   # проверка запасных картинок
+        open("tg.log", "a").write(json.dumps({"m": u.path.split("/")[-1], **body}, ensure_ascii=False) + "\n"); return R({"ok": True})
     if "steamspy" in u.netloc:
         if q["request"][0] == "tag": return R(tagdata(q["tag"][0]))
         if q["request"][0] == "top100forever": return R({"777030": big("Popular Meh", 20000, 40000), "777031": big("Tiny Top", 1000, 500)})

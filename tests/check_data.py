@@ -30,6 +30,7 @@ d = xml.dom.minidom.parse("data/sitemap.xml"); chk("sitemap.xml валиден",
 chk("в sitemap есть главная страница", "<loc>https://owner.github.io/repo/</loc>" in open("data/sitemap.xml", encoding="utf-8").read())
 chk("без токена счётчика его нет на страницах игр", "cloudflareinsights" not in pg)
 log = [json.loads(l) for l in open("tg.log")] if os.path.exists("tg.log") else []
+chk("обложка в посте: исходная обложка игры (header.jpg)", all(l["photo"].endswith("/header.jpg") for l in log if l["m"] == "sendPhoto"), [l.get("photo") for l in log])
 chk("Telegram: ровно один пост за запуск", len(log) == 1, len(log))
 if log:
     c = log[0]["caption"]; print("\n--- пример поста ---\n" + c + "\n---\n")
@@ -40,6 +41,7 @@ if log:
 if os.path.exists("data/announce.json"):
     an = json.load(open("data/announce.json", encoding="utf-8"))
     chk("announce.json: у каждого анонса есть дата, текст и признак подтверждения", all(isinstance(x.get("approved"), bool) and x.get("date") and "{days}" in x.get("text", "") for x in an), an[:1])
+    chk("announce.json: ссылка на сайт спрятана за короткой гиперссылкой, а не показана полным адресом", all(t.count("{site}") == t.count('href="{site}"') for t in (x["text"] for x in an)), [x["text"][-120:] for x in an])
     texts = [l.get("caption") or l.get("text") or "" for l in log]
     chk("неподтверждённые анонсы в канал не уходили", not any(x["text"][:25] in t for x in an if not x["approved"] for t in texts))
 print("ВСЕ ПРОВЕРКИ ДАННЫХ ПРОЙДЕНЫ" if not bad else f"ПРОВАЛЕНО: {bad}")

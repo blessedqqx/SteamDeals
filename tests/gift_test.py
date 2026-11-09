@@ -71,5 +71,16 @@ n = len(tg()); run("post_telegram")
 chk("анонс t1 повторно не публикуется", not any("TEST1" in c for c in last_new(n)))
 ann[1]["approved"] = True; save(); n = len(tg()); run("post_telegram")
 chk("после подтверждения t2 ушёл («через 3 дня»)", any("TEST2 через 3 дня" in c for c in last_new(n)), last_new(n))
+
+# 6) обложки: если лучшая картинка не принята, берётся следующая; если не принята ни одна — пост уходит текстом
+fd = datetime.date.today() + datetime.timedelta(days=40)
+while fd.weekday() == 6: fd += datetime.timedelta(days=1)       # не воскресенье, чтобы не попал «Топ недели»
+def last_photo(**env):
+    n = len(tg()); run("post_telegram", SD_NOW=f"{fd.isoformat()}T09:20:00", **env); l = tg()[n:]
+    return (l[-1]["m"], (l[-1].get("photo") or "").rsplit("/", 1)[-1]) if l else (None, None)
+chk("обложка по умолчанию: исходная header.jpg", last_photo() == ("sendPhoto", "header.jpg"))
+chk("нет header → берётся capsule_616x353.jpg", last_photo(TG_FAIL="/header.jpg") == ("sendPhoto", "capsule_616x353.jpg"))
+chk("нет header и capsule → берётся library_hero.jpg", last_photo(TG_FAIL="/header.jpg,capsule_616") == ("sendPhoto", "library_hero.jpg"))
+chk("не принята ни одна картинка → пост уходит текстом", last_photo(TG_FAIL="steam/apps")[0] == "sendMessage")
 print("ВСЕ ПРОВЕРКИ РАЗДАЧ ПРОЙДЕНЫ" if not bad else f"ПРОВАЛЕНО: {bad}")
 raise SystemExit(1 if bad else 0)

@@ -19,6 +19,9 @@ MIN_PCT = 80      # минимум положительных отзывов, %
 MIN_REV = 5000    # минимум отзывов (чтобы игра была известной)
 HIT_REV = 50000   # «народные» игры (Battlefield и т.п.): от стольких отзывов оценка может быть ниже MIN_PCT
 HIT_PCT = 40      # но не ниже этого процента положительных
+COVER = "header"  # картинка в посте: "header" = исходная обложка игры из магазина Steam с названием (460 px, лучшего оригинала у Steam нет);
+                  # "capsule" = обложка покрупнее (616 px) с названием, но кадрирована иначе; "hero" = широкий арт 1920 px без названия.
+                  # Если первой картинки нет, берётся следующая
 MAX_POSTS = 1     # постов за один запуск
 MAX_PER_DAY = 5   # потолок постов за сутки
 COOLDOWN, JUMP = 14, 15   # не повторять игру 14 дней, если скидка не выросла на 15 п.п.
@@ -65,12 +68,26 @@ def api(method, payload):
     try: return json.load(urllib.request.urlopen(req, timeout=30))
     except urllib.error.HTTPError as e: raise RuntimeError(f"{method}: {e.code} {e.read().decode('utf-8', 'ignore')[:200]}")
 
+def covers(i):
+    """Адреса обложки по убыванию качества: пробуем по очереди, пока Telegram не примет."""
+    base = f"https://cdn.akamai.steamstatic.com/steam/apps/{i}/"
+    names = {"header": "header.jpg", "capsule": "capsule_616x353.jpg", "hero": "library_hero.jpg"}
+    first = COVER if COVER in names else "header"
+    return [base + names[k] for k in [first] + [k for k in ("header", "capsule", "hero") if k != first]]
+
+def send_photo(photos, text, kb):
+    """Отправляет первую подходящую картинку из списка; возвращает ответ Telegram или None, если ни одна не принята."""
+    for ph in ([photos] if isinstance(photos, str) else photos):
+        try: return api("sendPhoto", {"chat_id": chan, "photo": ph, "caption": text, "parse_mode": "HTML", "reply_markup": kb})
+        except Exception as e: print("картинка не принята:", ph.rsplit("/", 1)[-1], e)
+    return None
+
 def send(i, text):
     kb = {"inline_keyboard": [[{"text": "Открыть в Steam", "url": f"https://store.steampowered.com/app/{i}/"}], [{"text": "Все скидки", "url": site}]]}
-    try: return api("sendPhoto", {"chat_id": chan, "photo": f"https://cdn.akamai.steamstatic.com/steam/apps/{i}/header.jpg", "caption": text, "parse_mode": "HTML", "reply_markup": kb})
-    except Exception as e:
-        print("фото не отправилось, шлю текстом:", e)
-        return api("sendMessage", {"chat_id": chan, "text": text, "parse_mode": "HTML", "reply_markup": kb})
+    r = send_photo(covers(i), text, kb)
+    if r: return r
+    print("фото не отправилось, шлю текстом")
+    return api("sendMessage", {"chat_id": chan, "text": text, "parse_mode": "HTML", "reply_markup": kb})
 
 def qualify(g):
     """Подходит ли игра для публикации: (id, цены по регионам, макс. скидка, отзывы, раздача) или None."""
@@ -90,8 +107,9 @@ def ru_days(n):
 def special_send(text, photo=None):
     kb = {"inline_keyboard": [[{"text": "Все скидки", "url": site}]]}
     if photo:
-        try: return api("sendPhoto", {"chat_id": chan, "photo": photo, "caption": text, "parse_mode": "HTML", "reply_markup": kb})
-        except Exception as e: print("фото не отправилось, шлю текстом:", e)
+        r = send_photo(photo, text, kb)
+        if r: return r
+        print("фото не отправилось, шлю текстом")
     return api("sendMessage", {"chat_id": chan, "text": text, "parse_mode": "HTML", "reply_markup": kb, "disable_web_page_preview": True})
 
 def mark(key):
@@ -128,7 +146,7 @@ def weekly_text():
         L += ["", "Все скидки, фильтры по жанрам и история цен на сайте 👇", "", "#топнедели #скидки #steam"]
         text = "\n".join(L)
         if len(text) <= 1000: break
-    return text, f"https://cdn.akamai.steamstatic.com/steam/apps/{rows[0][1]}/header.jpg"
+    return text, covers(rows[0][1])
 
 # особые посты занимают место обычного поста в этом запуске
 try:
