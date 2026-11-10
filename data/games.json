@@ -9372,5 +9372,63 @@
 "name": "DREADMOOR",
 "tags": [],
 "nt": 1
+},
+{
+"id": 1203220,
+"name": "NARAKA: BLADEPOINT",
+"tags": [],
+"o": "10,000,000 .. 20,000,000",
+"f": 1,
+"nt": 1
+},
+{
+"id": 438100,
+"name": "VRChat",
+"tags": [
+"openworld"
+],
+"o": "20,000,000 .. 50,000,000",
+"f": 1
+},
+{
+"id": 2246340,
+"name": "Monster Hunter Wilds",
+"tags": [
+"coop",
+"openworld"
+],
+"o": "20,000,000 .. 50,000,000"
+},
+{
+"id": 1811260,
+"name": "EA SPORTS FIFA 23",
+"tags": [
+"coop"
+],
+"o": "5,000,000 .. 10,000,000",
+"f": 1
+},
+{
+"id": 1089350,
+"name": "NBA 2K20",
+"tags": [],
+"o": "5,000,000 .. 10,000,000",
+"f": 1,
+"nt": 1
+},
+{
+"id": 1491000,
+"name": "War Robots: Frontiers",
+"tags": [
+"coop",
+"shooter"
+],
+"o": "20,000,000 .. 50,000,000",
+"f": 1
+},
+{
+"id": 92137,
+"name": "Vampire Survivors + Warhammer Survivors",
+"tags": []
 }
 ]
