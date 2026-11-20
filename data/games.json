@@ -9303,7 +9303,8 @@
 {
 "id": 4336170,
 "name": "Age of Empires IV: Raiders of the North",
-"tags": []
+"tags": [],
+"nt": 1
 },
 {
 "id": 5335510,
@@ -9863,9 +9864,10 @@
 "id": 2909400,
 "name": "FINAL FANTASY VII REBIRTH",
 "tags": [
-"story",
-"openworld"
-]
+"openworld",
+"story"
+],
+"o": "500,000 .. 1,000,000"
 },
 {
 "id": 4459590,
@@ -9874,5 +9876,11 @@
 "indie",
 "strategy"
 ]
+},
+{
+"id": 4080220,
+"name": "EA SPORTS FC 27",
+"tags": [],
+"nt": 1
 }
 ]
