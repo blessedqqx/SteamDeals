@@ -104,7 +104,7 @@
 "openworld",
 "story"
 ],
-"o": "20,000,000 .. 50,000,000"
+"o": "10,000,000 .. 20,000,000"
 },
 {
 "id": 1151640,
@@ -9005,10 +9005,11 @@
 "id": 2767030,
 "name": "Marvel Rivals",
 "tags": [
-"shooter",
-"coop"
+"coop",
+"shooter"
 ],
-"f": 1
+"f": 1,
+"o": "50,000,000 .. 100,000,000"
 },
 {
 "id": 236390,
@@ -9882,5 +9883,49 @@
 "name": "EA SPORTS FC 27",
 "tags": [],
 "nt": 1
+},
+{
+"id": 431960,
+"name": "Wallpaper Engine",
+"tags": [
+"horror",
+"indie"
+],
+"o": "20,000,000 .. 50,000,000"
+},
+{
+"id": 1203220,
+"name": "NARAKA: BLADEPOINT",
+"tags": [
+"openworld"
+],
+"o": "10,000,000 .. 20,000,000",
+"f": 1
+},
+{
+"id": 438100,
+"name": "VRChat",
+"tags": [
+"openworld"
+],
+"o": "20,000,000 .. 50,000,000",
+"f": 1
+},
+{
+"id": 2246340,
+"name": "Monster Hunter Wilds",
+"tags": [
+"coop",
+"openworld"
+],
+"o": "20,000,000 .. 50,000,000"
+},
+{
+"id": 1817070,
+"name": "Marvel’s Spider-Man Remastered",
+"tags": [
+"story",
+"openworld"
+]
 }
 ]
