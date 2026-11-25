@@ -9683,7 +9683,8 @@
 {
 "id": 3796990,
 "name": "Euro Truck Simulator 2 - Iceland",
-"tags": []
+"tags": [],
+"nt": 1
 },
 {
 "id": 4530440,
@@ -9896,5 +9897,15 @@
 ],
 "o": "10,000,000 .. 20,000,000",
 "f": 1
+},
+{
+"id": 5510420,
+"name": "Dead by Daylight: Terrifier",
+"tags": []
+},
+{
+"id": 1624417,
+"name": "Warhammer 40,000: Dawn of War IV Commander Edition",
+"tags": []
 }
 ]
